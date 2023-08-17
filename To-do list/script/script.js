@@ -21,3 +21,27 @@ dueDate.addEventListener('change', () => {
      duedateValue.innerHTML = dueDate.value;
      console.log(dueDate.value)
 });
+
+const logoutBox = document.getElementById('logoutBox');
+const proccedLogout = document.getElementById('proccedLogout');
+const cancelLogout = document.getElementById('cancelLogout');
+
+$(document).ready(function () {
+  $('#logOut').click(() => $('#logoutBox').toggle('fast'));
+});
+
+proccedLogout.addEventListener('click', () => handleLogout('yes'));
+cancelLogout.addEventListener('click', () => handleLogout('no'));
+
+function handleLogout(status) {
+  console.log(status);
+  if (status == 'yes' || status == 'no') {
+    $('#logoutBox').toggle('fast');
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    $('#logoutBox').hide('fast');
+  }
+});
