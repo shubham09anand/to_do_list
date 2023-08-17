@@ -34,7 +34,7 @@
                <div class="w-full min-h-[600px] max-h-[601px] overflow-y-scroll border rounded-xl">
                     <div class="space-y-3 p-5">
                          <div class="flex w-full justify-between py-3 border px-5 rounded-xl">
-                              <div>
+                              <div id="addTaskButton" class="active:bg-gray-200 rounded-lg">
                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
@@ -42,6 +42,9 @@
                               </div>
                               <div class="text-base">Add New Task</div>
                          </div>
+                         
+                         <div><script>addTask()</script></div>
+                         
                          <div class="flex w-full justify-between py-3 border-2 px-5 rounded-xl">
                               <div class="space-x-4">
                                    <input id="vue-checkbox" type="checkbox" value=""
@@ -104,22 +107,7 @@
      <script>footer()</script>
      <!-- footer ends -->
 
-     <script>
-          $(document).ready(function () {
-
-               $('#Hamburger').click(function () {
-                    $("#dashBoard").toggle(500);
-               });
-
-               $('#taskBar').click(function () {
-                    $("#task").toggle(500);
-               });
-          });
-
-          taskbar = document.getElementById("taskBar");
-
-     </script>
-
+     <script src="..//script/script.js"></script>
 </body>
 
 </html>
