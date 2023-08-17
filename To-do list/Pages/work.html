@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script src="../script/components.js"></script>
+     <script src="../Assets/jquery-3.7.0.min.js"></script>
+     <title>Document</title>
+
+
+     <style>
+          @font-face {
+               font-family: FourthFont;
+               src: url('Assets/Font/Font4/OFL.txt');
+          }
+     </style>
+</head>
+
+
+<body class="m-2">
+     <!-- navbar starts -->
+     <script>header()</script>
+     <!-- navbar ends -->
+
+     <div class="flex space-x-5">
+
+          <script>dashboard()</script>
+
+          <!-- main starts -->
+          <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl p-5 space-y-3">
+               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Work</div>
+               <div class="w-full min-h-[600px] max-h-[601px] overflow-y-scroll border rounded-xl">
+                    <div class="space-y-3 p-5">
+                         <div class="flex w-full justify-between py-3 border px-5 rounded-xl">
+                              <div>
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                                   </svg>
+                              </div>
+                              <div class="text-base">Add New Task</div>
+                         </div>
+                         <div class="flex w-full justify-between py-3 border-2 px-5 rounded-xl">
+                              <div class="space-x-4">
+                                   <input id="vue-checkbox" type="checkbox" value=""
+                                        class="w-5 h-5  text-blue-600 bg-gray-100 border-gray-800 rounded-full">
+                                   <label for="vue-checkbox"
+                                        class=" w-full py-3 ml-2 text-sm font-semibold text-gray-900 dark:text-gray-300">Work
+                                        1</label>
+                              </div>
+                              <div>
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                             d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                   </svg>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <!-- main ends -->
+
+          <div  id="task" class="w-full sm:w-2/5 min-h-fit bg-gray-200 p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
+               <div class="uppercase text-3xl font-semibold flex justify-between">
+                    <div>Task</div>
+                    <div>
+                         <svg id="taskBar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                              stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                         </svg>
+                    </div>
+               </div>
+               <div class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left ">Tiltle
+                    of
+                    selected task</div>
+               <div class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left h-48">
+                    Discription of selected task</div>
+               <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between ">
+                    <div class="">List</div>
+                    <div>Selected list</div>
+               </div>
+               <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between">
+                    <div class="">Due Date</div>
+                    <div>Date</div>
+               </div>
+
+               <div class="space-y-5 px-2">
+                    <div class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0"
+                         data-primary="green-400" data-rounded="rounded-2xl">Done</div>
+                    <div class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-400 sm:w-auto sm:mb-0"
+                         data-primary="green-400" data-rounded="rounded-2xl"> Edit Task</div>
+                    <div class="text-center justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-500 sm:w-auto sm:mb-0"
+                         data-primary="green-400" data-rounded="rounded-2xl"> Delete Task</div>
+               </div>
+
+          </div>
+     </div>
+
+
+     <!-- footer starts -->
+     <script>footer()</script>
+     <!-- footer ends -->
+
+     <script>
+          $(document).ready(function () {
+
+               $('#Hamburger').click(function () {
+                    $("#dashBoard").toggle(500);
+               });
+
+               $('#taskBar').click(function () {
+                    $("#task").toggle(500);
+               });
+          });
+
+          taskbar = document.getElementById("taskBar");
+
+     </script>
+
+</body>
+
+</html>

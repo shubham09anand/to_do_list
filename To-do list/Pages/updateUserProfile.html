@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script src="../script/components.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js"></script>
+     <title>Document</title>
+</head>
+
+<style>
+     .curvedBorder{
+          border-radius: 49% 51% 47% 53% / 0% 0% 21% 21%;
+     }
+</style>
+
+<body class="overflow-x-hidden bg-gray-50">
+
+     <!-- header starts -->
+     <script>header()</script>
+     <!-- header ends -->
+
+     <div class="absolute scale-125 -top-20 -z-20 curvedBorder h-[500px] w-screen bg-blue-500 border-white"></div>
+     <!-- component -->
+     <div class="flex place-content-center items-center p-10 sm:p-0">
+          <form action="backendPhp/operationUserProfile.php" method="POST" enctype="multipart/form-data" class="rounded-xl relative flex flex-col w-full px-8 mx-auto my-6 transition duration-500 ease-in-out transform bg-white shadow-2xl  sm:w-4/5 lg:w-1/2" id="form" name="form">
+               <div class="image items-center justify-center w-32 h-32 flex mt-10">
+                    <label for="userBackgroundPhoto"
+                         class="p-5 flex flex-col items-center justify-center w-full h-full rounded-full border-8 border-white  cursor-pointer bg-gray-50">
+                         <div id="imgArea-1" class="w-full h-full rounded-full bg-gray-100 flex flex-col items-center justify-center">
+                              <svg id="svg-1" class="w-8 h-8 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                              </svg>
+                              <div id="text-1">
+                                   <p class="mb-2 text-xs text-gray-500 dark:text-gray-400"><span class="font-semibold">Profile Photo</span></p>
+                              </div>
+                         </div>
+                         <input id="userBackgroundPhoto" name="userBackgroundPhoto" type="file" class="hidden" />
+                    </label>
+               </div>
+               <div class="image items-center justify-center w-full h-32 flex absolute -z-10 -left-0">
+                    <label for="userProfilePhoto"
+                         class=" flex flex-col items-center justify-center w-full h-full cursor-pointer bg-gray-50">
+                         <div id="imgArea-2" class="w-full h-full bg-gray-100 flex flex-col items-center justify-center">
+                              <svg id="svg-2" class="w-8 h-8 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                              </svg>
+                              <div id="text-2">
+                                   <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Background Photo</span></p>
+                              </div>
+                         </div>
+                         <input id="userProfilePhoto" name="userProfilePhoto" type="file" class="hidden" />
+                    </label>
+               </div>
+               <div class="w-full sm:flex sm:justify-between sm:space-x-5">
+                    <div class="relative pt-2">
+                         <label for="userFirstName" class="text-base leading-7 text-blueGray-500 pl-3">First Name</label>
+                         <input type="text" id="userFirstName" name="userFirstName" autocomplete="off" placeholder="First Name" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white ">
+                         <div id="firstnameWarning" class="text-red-800 text-xs pl-1 opacity-0">Enter your first name</div>
+                    </div>
+                    <div class="relative pt-2">
+                         <label for="userLastName" class="text-base leading-7 text-blueGray-500 pl-3">Last Name</label>
+                         <input type="text" id="userLastName" name="userLastName" autocomplete="off" placeholder="Last Name" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white ">
+                         <div id="lastnameWarning" class="text-red-800 text-xs pl-1 opacity-0">Enter your last name</div>
+                    </div>
+               </div>
+               <div class="w-full sm:flex sm:justify-between sm:space-x-5">
+                    <div class="relative pt-2">
+                         <label for="userPhoneNumber" class="text-base leading-7 text-blueGray-500 pl-3">Phone Number</label>
+                         <input type="text" id="userPhoneNumber" name="userPhoneNumber" autocomplete="off" placeholder="Phone Number (optional)" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white ">
+                    </div>
+                    <div class="relative pt-2">
+                         <label for="userPhoneEmail" class="text-base leading-7 text-blueGray-500 pl-3">Email</label>
+                         <input type="text" id="userEmail" name="userEmail" placeholder="Email (optional)" autocomplete="off" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white ">
+                    </div>
+               </div>
+               <div class="sm:flex sm:space-x-5 w-full justify-between items-center mt-3">
+                    <div class="relative w-full h-fit translate-y-2.5">
+                         <div for="name"  class="text-base leading-7 text-blueGray-500 pl-2 -translate-y-2 sm:-translate-y-5">Enter your date of birth </div>
+                         <div class="flex items-center pl-3.5  pointer-events-none -mb-7">
+                              <svg class="w-4 h-4 translat text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                   <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                              </svg>
+                         </div>
+                         <input autocomplete="off" id="userDOB" name="userDOB" datepicker type="text" class="bg-gray-50 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                         <div id="DOBWarning" class="text-red-800 text-xs pl-1 opacity-0">Enter your Date of Birth</div>
+                    </div>
+
+                    <div class="relative mb-4 w-full">
+                         <label for="userStatus" class="text-base leading-7 text-blueGray-500 pl-2">You Are </label>
+                         <select id="userStatus" name="userStatus" class="w-full px-4 py-2 mt-2 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white ">
+                              <option selected>Student</option>
+                              <option>Houehold</option>
+                              <option>Employee</option>
+                              <option>Others</option>
+                         </select>
+                    </div>
+               </div>
+               <div class="w-full sm:flex sm:space-x-5">
+                    <div class="relative pt-2">
+                         <label for="userCountry" class="text-base leading-7 text-blueGray-500 pl-3">Country</label>
+                         <input autocomplete="off" type="text" id="userCountry" name="userCountry" placeholder="Country" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white">
+                         <div id="CountryWarning" class="text-red-800 opacity-0 text-xs pl-1">Enter your country</div>
+                    </div>
+                    <div class="relative pt-2">
+                         <label for="userState" class="text-base leading-7 text-blueGray-500 pl-3">State</label>
+                         <input autocomplete="off" type="text" id="userState" name="userState" placeholder="State" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white">
+                         <div id="StateWarning" class="text-red-800 opacity-0 text-xs pl-1">Enter your state</div>
+                    </div>
+                    <div class="relative pt-2">
+                         <label for="userCity" class="text-base leading-7 text-blueGray-500 pl-3">City</label>
+                         <input autocomplete="off" type="text" id="userCity" name="userCity" placeholder="City" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white">
+                         <div id="CityWarning" class="text-red-800 opacity-0 text-xs pl-1">Enter your city </div>
+                    </div>
+               </div>
+
+               <div class="flex flex-wrap mt-2 mb-2 -mx-3">
+                    <div class="w-full px-3">
+                         <label class="text-base leading-7 text-blueGray-500" for="userDescription">Write Someting about yourself </label>
+                         <textarea autocomplete="off" class="resize-none w-full h-32 px-4 py-2 mt-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border rounded-lg focus:border-blue-500  apearance-none autoexpand" id="userDescription" type="text" name="userDescription" placeholder="Description..." required=""></textarea>
+                    </div>
+                    <div id="descriptionWarning" class="text-red-800 opacity-0 text-xs pl-3">Write someting about yourself...</div>
+               </div>
+               <div onclick="checkForm();" class="flex items-center w-full pt- mb-4">
+                    <button type="button" class="w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus hover:bg-blue-800 ">Button </button>
+               </div>
+          </form>
+     </div>
+
+     <!-- footer starts -->
+     <script>footer()</script>
+     <!-- footer ends -->
+
+     <script src="script/updateUserProfile.js"></script>
+
+</body>
+
+</html>
