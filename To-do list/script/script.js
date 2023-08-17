@@ -13,3 +13,11 @@ $(document).ready(function () {
      });
      
 });
+
+let dueDate = document.getElementById("dueDate");
+let duedateValue = document.getElementById("duedateValue");
+
+dueDate.addEventListener('change', () => {
+     duedateValue.innerHTML = dueDate.value;
+     console.log(dueDate.value)
+});
