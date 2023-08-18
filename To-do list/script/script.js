@@ -45,3 +45,10 @@ document.addEventListener('keydown', (event) => {
     $('#logoutBox').hide('fast');
   }
 });
+
+var priorityBox = document.getElementById('Priority');
+var priorityLevel = document.getElementById('priorityLevel');
+priorityBox
+.addEventListener('change' , ()=>{
+  priorityLevel.innerHTML = priorityBox.value;
+})
