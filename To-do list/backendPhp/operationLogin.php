@@ -1,8 +1,9 @@
 <?php $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list'); ?>
 
+
 <?php
 
-$inserionStaus = false;
+$loginStatus = 0;
 
 // Check if the connection is successful
 if (!$conn) {
@@ -13,7 +14,11 @@ if (!$conn) {
 $userName = $_REQUEST['userName'];
 $userPassword = $_REQUEST['userPassword'];
 
-$sqlQuery = "SELECT * FROM userinfo WHERE userName = '$userName' and userPassword = '$userPassword";
+$sqlQuery = "SELECT * FROM userinfo WHERE userName = '$userName' and userPassword = '$userPassword'";
+
+if (!$sqlQuery) {
+     die("Connection failed: " . mysqli_connect_error());
+}
 
 $result = mysqli_query($conn, $sqlQuery);
 
@@ -24,14 +29,17 @@ $rowCount = mysqli_num_rows($result);
 if ($rowCount == 1) {
 
      if ($dataQuery['userPassword'] == $userPassword) {
-          $_SESSION['userPassword'] = $userPassword;
-          echo("hi");
+          $loginStatus = 1;          
+          $_SESSION['userID'] = $dataQuery['userID'];
      };
 
      } 
 else {
-          echo "nothinng";
+          $loginStatus = -1;
      }
 
-mysqli_close($conn);
+     $response = array('loginStatus' => $loginStatus);
+     echo json_encode($response);
+     
+     mysqli_close($conn);
 ?>

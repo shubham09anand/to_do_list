@@ -6,51 +6,72 @@
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <script src='https://cdn.tailwindcss.com'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/datepicker.min.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fusioncharts/3.20.0/fusioncharts.js" integrity="sha512-IyMhCgb2VEFhNCRPifNvOrWZHX4Fw8ddHcZBRmmlrvxvT8Vc7O51n6ZnIl2xq5tRbNh7WSxY8ZthJK5ceJTNPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fusioncharts/3.20.0/fusioncharts.js"
+    integrity="sha512-IyMhCgb2VEFhNCRPifNvOrWZHX4Fw8ddHcZBRmmlrvxvT8Vc7O51n6ZnIl2xq5tRbNh7WSxY8ZthJK5ceJTNPQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
   <title>Document</title>
 </head>
 
 <body class='bg-gray100'>
 
-  <div id="chart-container" class="h-screen w-screen"></div>
+  <div class="w-1/2 overflow-hidden p-10">
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit mb-4 dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-gray-600 h-7 rounded-full dark:bg-gray-300 w-0 text-right pr-10 item-center text-white font-medium">Dark</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit mb-4 dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-blue-600 h-7 rounded-full w-0 text-right pr-10 item-center text-white font-medium">Personal</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit mb-4 dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-red-600 h-7 rounded-full dark:bg-red-500 w-0 text-right pr-10 item-center text-white font-medium">Work</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit mb-4 dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-green-600 h-7 rounded-full dark:bg-green-500 w-0 text-right pr-10 item-center text-white font-medium">Other</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit mb-4 dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-yellow-400 h-7 rounded-full w-0 text-right pr-10 item-center text-white font-medium">Study</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit mb-4 dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-indigo-600 h-7 rounded-full dark:bg-indigo-500 w-0 text-right pr-10 item-center text-white font-medium">Lesiure</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-purple-600 h-7 rounded-full dark:bg-purple-500 w-0 text-right pr-1 item-center text-white font-medium">Purple</div>
+      </div>
+    </div>
+    <div>
+      <div class="w-full bg-gray-200 rounded-full h-fit dark:bg-gray-700 overflow-hidden">
+        <div class="progress bg-blue-600 h-7 rounded-full dark:bg-purple-500 w-0 text-right pr-1 item-center text-white font-medium">Purple</div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const dataSource = {
-  chart: {
-    caption: "Android Distribution for our app",
-    showpercentvalues: "1",
-    decimals: "0",
-    plottooltext:
-      "<b>$percentValue</b> of our Android users are on <b>$label</b>",
-  },
-  data: [
-    {
-      label: "Ice Cream Sandwich",
-      value: "1000"
-    },
-    {
-      label: "Jelly Bean",
-      value: "5300"
-    },
-    {
-      label: "Kitkat",
-      value: "1000"
-    }
-  ]
-};
-
-FusionCharts.ready(function() {
-  var myChart = new FusionCharts({
-    type: "doughnut2d",
-    renderAt: "chart-container",
-    width: "100%",
-    height: "100%",
-    dataFormat: "json",
-    dataSource
-  }).render();
-});
-
+    window.onload = function () {
+      const progressBars = document.querySelectorAll(".progress");
+  
+      const widths = [20, 40, 60, 80, 30, 70, 10]; // Set different widths for each progress bar
+  
+      progressBars.forEach((progressBar, index) => {
+        progressBar.style.transition = "width 2000ms";
+        progressBar.style.width = widths[index] + "%"; // Assign the width from the array
+      });
+    };
   </script>
-
+  
+</body>
 
 
 </body>

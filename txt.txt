@@ -14,9 +14,6 @@ INSERT INTO Employee (emp_id, name, birthdate, gender, hire_date) VALUES
 (104, 'Daren', '1979-04-11', 'M', '2006-11-01'),  
 (105, 'Marie', '1990-02-11', 'F', '2018-10-12');  
 
-
-
-
 CREATE TABLE Payment (  
   payment_id int(10) PRIMARY KEY NOT NULL,  
   emp_id int(10) NOT NULL,  
