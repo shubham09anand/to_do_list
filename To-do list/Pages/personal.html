@@ -16,11 +16,19 @@
                font-family: FourthFont;
                src: url('Assets/Font/Font4/OFL.txt');
           }
+
+          .placeholder::-webkit-input-placeholder {
+               color: black;
+          }
+
+          .red{
+               background-color: aqua;
+          }
      </style>
 </head>
 
 
-<body class="m-2">
+<body class="">
      <!-- navbar starts -->
      <script>header()</script>
      <!-- navbar ends -->
@@ -30,7 +38,7 @@
           <script>dashboard()</script>
 
           <!-- main starts -->
-          <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-100 rounded-xl p-5 space-y-3">
+          <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl p-5 space-y-3">
                <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Personal</div>
                <div class="w-full min-h-[600px] max-h-[601px] overflow-y-scroll border rounded-xl">
                     <div class="space-y-3 p-5">
@@ -43,9 +51,9 @@
                               </div>
                               <div class="text-base">Add New Task</div>
                          </div>
-                         
+
                          <div><script>addTask()</script></div>
-                         
+
                          <div class="flex w-full justify-between py-3 border-2 px-5 rounded-xl">
                               <div class="space-x-4">
                                    <input id="vue-checkbox" type="checkbox" value=""
@@ -67,8 +75,7 @@
           </div>
           <!-- main ends -->
 
-          <div id="task"
-               class="w-full sm:w-2/5 min-h-fit bg-gray-200 p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
+          <div  id="task" class="w-full sm:w-2/5 min-h-fit bg-gray-200 p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
                <div class="uppercase text-3xl font-semibold flex justify-between">
                     <div>Task</div>
                     <div>
@@ -78,11 +85,10 @@
                          </svg>
                     </div>
                </div>
-               <div
-                    class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left ">
-                    Tiltle of selected task</div>
-               <div
-                    class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left h-48">
+               <div class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left ">Tiltle
+                    of
+                    selected task</div>
+               <div class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left h-48">
                     Discription of selected task</div>
                <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between ">
                     <div class="">List</div>
@@ -103,8 +109,9 @@
                </div>
 
           </div>
-     </div>    
+     </div>
 
+    <script src="..//script/taskInsert.js"></script>
 
      <!-- logOut starts -->
      <script>logOut()</script>
@@ -114,11 +121,13 @@
      <script>footer()</script>
      <!-- footer ends -->
 
+     <script src="..//script/script.js"></script>
+
+
      <script>
           document.getElementById("todoType").innerHTML = 'Personal';
      </script>
 
-     <script src="..//script/script.js"></script>
 
 </body>
 

@@ -16,11 +16,19 @@
                font-family: FourthFont;
                src: url('Assets/Font/Font4/OFL.txt');
           }
+
+          .placeholder::-webkit-input-placeholder {
+               color: black;
+          }
+
+          .red{
+               background-color: aqua;
+          }
      </style>
 </head>
 
 
-<body class="m-2">
+<body class="">
      <!-- navbar starts -->
      <script>header()</script>
      <!-- navbar ends -->
@@ -43,9 +51,9 @@
                               </div>
                               <div class="text-base">Add New Task</div>
                          </div>
-                         
+
                          <div><script>addTask()</script></div>
-                         
+
                          <div class="flex w-full justify-between py-3 border-2 px-5 rounded-xl">
                               <div class="space-x-4">
                                    <input id="vue-checkbox" type="checkbox" value=""
@@ -103,17 +111,24 @@
           </div>
      </div>
 
+    <script src="..//script/taskInsert.js"></script>
+
+     <!-- logOut starts -->
+     <script>logOut()</script>
+     <!-- logOut ends -->
 
      <!-- footer starts -->
      <script>footer()</script>
      <!-- footer ends -->
+
+     <script src="..//script/script.js"></script>
+
 
      <script>
           document.getElementById("todoType").innerHTML = 'Work';
      </script>
 
 
-     <script src="..//script/script.js"></script>
 </body>
 
 </html>

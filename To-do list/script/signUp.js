@@ -26,7 +26,7 @@ else{
               var response = JSON.parse(connection.responseText);
               console.log(response);
               if (response.insertionStatus == -1) {
-                    console.log("Soe=mething Went wrong plese try again");
+                    console.log("Soemething Went wrong plese try again");
               }
               else if (response.insertionStatus == 1) {
                     console.log("Sign Up Success");

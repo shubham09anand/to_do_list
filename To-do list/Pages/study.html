@@ -16,11 +16,19 @@
                font-family: FourthFont;
                src: url('Assets/Font/Font4/OFL.txt');
           }
+
+          .placeholder::-webkit-input-placeholder {
+               color: black;
+          }
+
+          .red{
+               background-color: aqua;
+          }
      </style>
 </head>
 
 
-<body class="m-2">
+<body class="">
      <!-- navbar starts -->
      <script>header()</script>
      <!-- navbar ends -->
@@ -103,6 +111,7 @@
           </div>
      </div>
 
+    <script src="..//script/taskInsert.js"></script>
 
      <!-- logOut starts -->
      <script>logOut()</script>
@@ -112,12 +121,12 @@
      <script>footer()</script>
      <!-- footer ends -->
 
-     <script>
-          document.getElementById("todoType").innerHTML = 'Study';
-     </script>
-
-
      <script src="..//script/script.js"></script>
+
+
+     <script>
+          document.getElementById("todoType").innerHTML = 'study';
+     </script>
 
 
 </body>

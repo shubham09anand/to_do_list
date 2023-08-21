@@ -39,7 +39,7 @@
 
           <!-- main starts -->
           <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl p-5 space-y-3">
-               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Today</div>
+               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Other</div>
                <div class="w-full min-h-[600px] max-h-[601px] overflow-y-scroll border rounded-xl">
                     <div class="space-y-3 p-5">
                          <div class="flex w-full justify-between py-3 border px-5 rounded-xl">
@@ -125,7 +125,7 @@
 
 
      <script>
-          document.getElementById("todoType").innerHTML = 'Today';
+          document.getElementById("todoType").innerHTML = 'Other';
      </script>
 
 
