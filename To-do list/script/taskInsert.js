@@ -30,12 +30,12 @@ function addTask(){
           },2000)
      }
      else{
-          console.log("hi");
+
           var connection = new XMLHttpRequest();
           connection.onreadystatechange = function () {
                if (connection.readyState == 4 && connection.status == 200) {
-                    var response = JSON.parse(connection.responseText);
-                    
+                    document.getElementById("addTask").style.display = "none";
+                    var response = connection.responseText;
                }
           }
 
@@ -48,9 +48,6 @@ function addTask(){
           connection.open("POST", "../backendPhp/OperationtaskInsert.php", true);
           connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           connection.send(data);
-
-          console.log(data)
-
           
      }
 }
