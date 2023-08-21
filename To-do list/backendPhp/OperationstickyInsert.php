@@ -8,17 +8,13 @@ $insertionStatus = 0;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $taskName = trim($_POST['taskName']);
-    $description = trim($_POST['description']);
-    $todoType = trim($_POST['todoType']);
-    $priorityLevel = trim($_POST['priorityLevel']);
-    $duedate = trim($_POST['duedate']);
-    
+    $stickyName = trim($_POST['stickyName']);
+    $stickyDescription = trim($_POST['stickyDescription']);
+
     // meta data
     date_default_timezone_set("Asia/Kolkata");
     $userId = 1;
-    $taskTime = date("H:i");
-    $taskStatus = "Not Completed"; // Added missing semicolon here
+    $stickyTime = date("H:i");
     
     // Check if the connection is successful
     if (!$conn) {
@@ -26,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     else {
 
-        $insertQuery = "INSERT INTO tasktable(taskID, UserId, taskTiltle, taskDescription, taskdueDate, taskPriority, taskType, taskTime, taskDate, taskStatus) VALUES ('$taskId','$userId','$taskName','$description','$duedate','$priorityLevel','$todoType','$taskTime',now(),'$taskStatus')";
+        $insertQuery = "INSERT INTO stickytable(UserId, stickyTiltle, stickyDescription, stickyTime, stickyDate) VALUES ('$userId','$stickyName','$stickyDescription','$stickyTime',now())";
         
         $insertResult = mysqli_query($conn, $insertQuery);
         

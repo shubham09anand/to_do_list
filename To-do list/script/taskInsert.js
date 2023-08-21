@@ -30,7 +30,6 @@ function addTask(){
           },2000)
      }
      else{
-
           var connection = new XMLHttpRequest();
           connection.onreadystatechange = function () {
                if (connection.readyState == 4 && connection.status == 200) {
@@ -48,6 +47,5 @@ function addTask(){
           connection.open("POST", "../backendPhp/OperationtaskInsert.php", true);
           connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           connection.send(data);
-          
      }
 }

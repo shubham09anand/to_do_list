@@ -132,3 +132,19 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `stickytable` (
+  `stickyID` int NOT NULL AUTO_INCREMENT,
+  `UserId` int NOT NULL,
+  `stickyTiltle` varchar(100) NOT NULL,
+  `stickyDescription` text NOT NULL,
+  `stickyTime` time NOT NULL,
+  `stickyDate` date NOT NULL,
+  PRIMARY KEY (`stickyID`)
+) 
