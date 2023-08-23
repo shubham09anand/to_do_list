@@ -1,117 +1,3 @@
-CREATE TABLE Employee (  
-  emp_id int(10) NOT NULL,  
-  name varchar(40) NOT NULL,  
-  birthdate date NOT NULL,  
-  gender varchar(10) NOT NULL,  
-  hire_date date NOT NULL,  
-  PRIMARY KEY (emp_id)  
-);
-
-INSERT INTO Employee (emp_id, name, birthdate, gender, hire_date) VALUES  
-(101, 'Bryan', '1988-08-12', 'M', '2015-08-26'),  
-(102, 'Joseph', '1978-05-12', 'M', '2014-10-21'),  
-(103, 'Mike', '1984-10-13', 'M', '2017-10-28'),  
-(104, 'Daren', '1979-04-11', 'M', '2006-11-01'),  
-(105, 'Marie', '1990-02-11', 'F', '2018-10-12');  
-
-CREATE TABLE Payment (  
-  payment_id int(10) PRIMARY KEY NOT NULL,  
-  emp_id int(10) NOT NULL,  
-  amount float NOT NULL,  
-  payment_date date NOT NULL,  
-  FOREIGN KEY (emp_id) REFERENCES Employee(emp_id) ON DELETE CASCADE  
-);  
-
-INSERT INTO Payment (payment_id, emp_id, amount, payment_date) VALUES   
-(301, 101, 1200, '2015-09-15'),  
-(302, 101, 1200, '2015-09-30'),  
-(303, 101, 1500, '2015-10-15'),  
-(304, 101, 1500, '2015-10-30'),  
-(305, 102, 1800, '2015-09-15'),  
-(306, 102, 1800, '2015-09-30'); 
-
-
-
-
-// else {
-               //      var connection = new XMLHttpRequest();
-
-               //      console.log("hit");
-
-               //      connection.onreadystatechange = function () {
-               //           if (connection.readyState == 4 && connection.status == 200) {
-               //                var response = connection.responseText;
-               //                console.log(response);
-
-
-               //                // var response = JSON.parse(connection.responseText);
-               //                // console.log(response);
-               //                // if (response.loginStatus == 0) {
-               //                //      console.log("Something went wrong. Please try again.");
-               //                // }
-               //                // else if (response.loginStatus == 1) {
-               //                //      console.log("Login Success");
-               //                // }
-               //                // else if (response.loginStatus == 2) {
-               //                //      console.log("Wrong user credentials");
-               //                // }
-               //           }
-               //      }
-               //      var data = "taskName=" + encodeURIComponent(taskName.value) + 
-               //      "&description=" + encodeURIComponent(description.value) + 
-               //      "&todoType=" + encodeURIComponent(todoType.innerHTML) + 
-               //      "&priorityLevel=" + encodeURIComponent(priorityLevel.innerHTML) + 
-               //      "&duedate=" + encodeURIComponent(duedate.innerHTML);
-
-               //      connection.open("POST", "../backendPhp/OperationtaskInsert.php", true);
-               //      connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-               //      connection.send(data);
-
-               // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,35 +7,37 @@ INSERT INTO Payment (payment_id, emp_id, amount, payment_date) VALUES
      <script src="https://cdn.tailwindcss.com"></script>
      <script src="../script/components.js"></script>
      <script src="../Assets/jquery-3.7.0.min.js"></script>
-     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>     
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
      <title>Document</title>
-
-
-     <style>
-          @font-face {
-               font-family: FourthFont;
-               src: url('Assets/Font/Font4/OFL.txt');
-          }
-
-          .placeholder::-webkit-input-placeholder {
-               color: black;
-          }
-
-          .red{
-               background-color: aqua;
-          }
-     </style>
 </head>
 
+<!-- php code -->
+<?php
+
+$conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list');
+
+$fetchQuery = "SELECT * FROM `tasktable` WHERE taskType = 'lesiure' and userID = 1";
+
+if ($fetchQuery) {
+
+     $result = mysqli_query($conn, $fetchQuery);
+} else {
+}
+
+?>
 
 <body class="">
      <!-- navbar starts -->
-     <script>header()</script>
+     <script>
+          header()
+     </script>
      <!-- navbar ends -->
 
      <div class="flex space-x-5">
 
-          <script>dashboard()</script>
+          <script>
+               dashboard()
+          </script>
 
           <!-- main starts -->
           <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl p-5 space-y-3">
@@ -158,94 +46,58 @@ INSERT INTO Payment (payment_id, emp_id, amount, payment_date) VALUES
                     <div class="space-y-3 p-5">
                          <div class="flex w-full justify-between py-3 border px-5 rounded-xl">
                               <div id="addTaskButton" class="active:bg-gray-200 rounded-lg">
-                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
                                    </svg>
                               </div>
                               <div class="text-base">Add New Task</div>
                          </div>
 
-                         <div id='addTask' class='p-3 w-full h-68 shadow-lg border-gray-300 rounded-lg relative mb-5 bg-white'>
-                              <label for='taskName' class='block text-sm font-medium text-gray-700 mb-1'></label>
-                              <input type='text' name='taskName' id='taskName' autocomplete='off' placeholder='Enter task name' class='shadow-lg w-full rounded-lg pl-3 py-1 pb-3 placeholder:font-semibold placeholder:text-md placeholder:text-gray-700 focus:outline-none hover:border-b'>
-                              <label for='description' class='block text-sm font-medium text-gray-700'></label>
-                                   <textarea name='description' id='description' autocomplete='off' class='shadow-lg mt-1 w-full rounded-lg min-h-[100px] pl-3 py-1 resize-none placeholder:font-semibold placeholder:text-md placeholder:text-gray-700 focus:outline-none hover:border-b' placeholder='Enter a description here'></textarea>
-                                   <div class='flex flex-wrap space-x-5 items-center'>
-                                   <div class='flex space-x-2 border border-b-2 rounded-lg w-fit h-fit px-1.5 py-1.5 mt-3 bg-white place-content-center items-center'>
-                                        <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='green' class='w-4 h-4 sm:w-5 sm:h-5'>
-                                             <path stroke-linecap='round' stroke-linejoin='round'
-                                                  d='M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5' />
+                         <div>
+                              <script>
+                                   addTask()
+                              </script>
+                         </div>
+
+                         <?php while ($data = mysqli_fetch_array($result)) {
+
+                              $userId = $data['userId'];
+                              $taskId = $data['taskId'];
+                              $taskType = $data['taskType'];
+
+                         ?>
+
+                              <div class="flex w-full justify-between border border-b-4 px-5 rounded-xl place-content-center item-center">
+                                   <div>
+                                        <div id="taskTitle" class=" w-full pt-3 ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                        <div id="taskDescription" class="pl-2 text-sm mb-2 w-full h-6 text-ellipsis overflow-hidden capitalize"><?php echo $data['taskDescription'] ?></div>
+                                   </div>
+                                   <div class="hover:bg-slate-200 h-fit w-fit mt-6 rounded-md">
+                                        <svg id="selectTask" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 sm:w-7 h-6 sm:h-7">
+                                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                         </svg>
-                                        <div id='todoType' class='text-green-800 text-sm sm:text-lg'>Today</div>
-                                   </div>
-                                   <div class='relative flex scale-[85%] sm:scale-100 mt-0.5'>
-                                        <label for='taskPriority' class='hidden'>.</label>
-                                        <select id='taskPriority' name='taskPriority' class='w-32 sm:w-40 p-2 py-2 sm:py-2.5 mt-3 rounded-lg bg-white border-b-2 border'>
-                                             <option value='Priority 1'>Priority 1</option>
-                                             <option value='Priority 2'>Priority 2</option>
-                                             <option value='Priority 3'>Priority 3</option>
-                                             <option value='Priority 4'>Priority 4</option>
-                                        </select>
-                                        <div class='flex absolute top-6 bg-white left-2 text-md pr-2'>
-                                             <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='red' class='w-4 h-4 sm:w-5 sm:h-5'>
-                                                  <path stroke-linecap='round' stroke-linejoin='round'
-                                                       d='M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5' />
-                                                  </svg>
-                                             <div id='priorityLevel' class='pl-3 text-md text-red-600 sm:text-lg font-medium -translate-y-1.5 h-fit'>Priority</div>
-                                        </div>
-                                   </div>
-                                   <div class='sm:mt-3 border py-1 border-b-2 w-fit rounded-lg relative mt-3'>
-                                        <label for='taskdueDate' id='duedateValue' class='absolute left-1 pl-1 ml-1 sm:left-0 text-md sm:text-lg bg-white pr-11 pb-2 sm:pt-0 sm:pb-0 sm:pr-6 top-1.5'>Due Date:</label>
-                                             <input type='date' name='taskdueDate' id='taskdueDate' class='text-black bg-white p-1 rounded-lg w-40 outline-none' placeholder='Select a due date'>
                                    </div>
                               </div>
-                              <div class='-space-x-5 sm:space-x-5 mt-2'>
-                                   <div class='scale-75 sm:scale-100 rounded inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-purple-600 active:shadow-none shadow-lg bg-gradient-to-tr from-purple-600 to-purple-500 border-purple-700 text-white'>
-                                        <span>Cancel</span>
-                                   </div>
-                                   <div onclick="addTask();" class='scale-75 sm:scale-100 rounded inline-flex group items-center justify-center px-3.5 py-2 m-1 cursor-pointer border-b-4 border-l-2 active:border-red-600 active:shadow-none shadow-lg bg-gradient-to-tr from-red-600 to-red-500 border-red-700 text-white'>
-                                        <span>Add Task</span>
-                                   </div>
-                              </div>
-                         </div>
 
-
-                         <div class="flex w-full justify-between py-3 border-2 px-5 rounded-xl">
-                              <div class="space-x-4">
-                                   <input id="vue-checkbox" type="checkbox" value=""
-                                        class="w-5 h-5  text-blue-600 bg-gray-100 border-gray-800 rounded-full">
-                                   <label for="vue-checkbox"
-                                        class=" w-full py-3 ml-2 text-sm font-semibold text-gray-900 dark:text-gray-300">Work
-                                        1</label>
-                              </div>
-                              <div>
-                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                             d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                                   </svg>
-                              </div>
-                         </div>
+                         <?php } ?>
                     </div>
                </div>
           </div>
           <!-- main ends -->
 
-          <div  id="task" class="w-full sm:w-2/5 min-h-fit bg-gray-200 p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
+          <div id="task" class="w-full sm:w-2/5 min-h-fit bg-gray-200 p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
                <div class="uppercase text-3xl font-semibold flex justify-between">
                     <div>Task</div>
                     <div>
-                         <svg id="taskBar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                              stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                         <svg id="taskBar" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                          </svg>
                     </div>
                </div>
-               <div class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left ">Tiltle
+               <div id="slectedtaskTitle" class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left ">Tiltle
                     of
                     selected task</div>
-               <div class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left h-48">
+               <div id="slectedtaskDescription" class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left h-48">
                     Discription of selected task</div>
                <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between ">
                     <div class="">List</div>
@@ -257,79 +109,26 @@ INSERT INTO Payment (payment_id, emp_id, amount, payment_date) VALUES
                </div>
 
                <div class="space-y-5 px-2">
-                    <div class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0"
-                         data-primary="green-400" data-rounded="rounded-2xl">Done</div>
-                    <div class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-400 sm:w-auto sm:mb-0"
-                         data-primary="green-400" data-rounded="rounded-2xl"> Edit Task</div>
-                    <div class="text-center justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-500 sm:w-auto sm:mb-0"
-                         data-primary="green-400" data-rounded="rounded-2xl"> Delete Task</div>
+                    <div class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl">Done</div>
+                    <div class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-400 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl"> Edit Task</div>
+                    <div class="text-center justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-500 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl"> Delete Task</div>
                </div>
 
           </div>
      </div>
 
-     <script>
-          var taskName = document.getElementById("taskName");
-          var description = document.getElementById("description");
-          var todoType = document.getElementById("todoType");
-          var priorityLevel = document.getElementById("priorityLevel");
-          var duedate = document.getElementById("duedateValue");
-
-          function addTask(){
-               if (taskName.value == "") {
-                    taskName.className = "shadow-lg w-full rounded-lg pl-3 py-1 pb-3 placeholder:font-semibold placeholder:text-md placeholder:text-red-500 focus:outline-none hover:border-b";
-                    setTimeout(()=>{
-                         taskName.className = "shadow-lg w-full rounded-lg pl-3 py-1 pb-3 placeholder:font-semibold placeholder:text-md placeholder:text-gray-700 focus:outline-none hover:border-b";
-                    },2000)
-               }
-               else if (description.value == "") {
-                    description.className = "shadow-lg mt-1 w-full rounded-lg min-h-[100px] pl-3 py-1 resize-none placeholder:font-semibold placeholder:text-md placeholder:text-red-500 focus:outline-none hover:border-b";
-                    setTimeout(()=>{
-                         description.className = "shadow-lg mt-1 w-full rounded-lg min-h-[100px] pl-3 py-1 resize-none placeholder:font-semibold placeholder:text-md placeholder:text-gray-700 focus:outline-none hover:border-b";
-                    },2000)
-               }
-               else if (priorityLevel.innerHTML == "Priority") {
-                    priorityLevel.className = "pl-3 text-md sm:text-lg font-medium -translate-y-1.5 h-fit";
-                    setTimeout(()=>{
-                         priorityLevel.className = "pl-3 text-md sm:text-lg font-medium -translate-y-1.5 h-fit text-red-500";
-                    },2000)
-               }
-               else if (duedate.innerHTML == "Due Date:") {
-                    duedate.className = "absolute left-1 pl-1 ml-1 sm:left-0 text-md sm:text-lg bg-white pr-11 pb-2 sm:pt-0 sm:pb-0 sm:pr-6 top-1.5 text-red-500";
-                    setTimeout(()=>{
-                         duedate.className = "absolute left-1 pl-1 ml-1 sm:left-0 text-md sm:text-lg bg-white pr-11 pb-2 sm:pt-0 sm:pb-0 sm:pr-6 top-1.5";
-                    },2000)
-               }
-               else{
-                    var connection = new XMLHttpRequest();
-                    connection.onreadystatechange = function () {
-                         if (connection.readyState == 4 && connection.status == 200) {
-                              var response = JSON.parse(connection.responseText);
-                              
-                         }
-                    }
-
-                    var data = "taskName=" + encodeURIComponent(taskName.value) + 
-                    "&description=" + encodeURIComponent(description.value) + 
-                    "&todoType=" + encodeURIComponent(todoType.innerHTML) + 
-                    "&priorityLevel=" + encodeURIComponent(priorityLevel.innerHTML) + 
-                    "&duedate=" + encodeURIComponent(duedate.innerHTML);
-
-                    connection.open("POST", "../backendPhp/OperationtaskInsert.php", true);
-                    connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    connection.send(data);
-               }
-          }
-
-
-     </script>
+     <script src="..//script/taskInsert.js"></script>
 
      <!-- logOut starts -->
-     <script>logOut()</script>
+     <script>
+          logOut()
+     </script>
      <!-- logOut ends -->
 
      <!-- footer starts -->
-     <script>footer()</script>
+     <script>
+          footer()
+     </script>
      <!-- footer ends -->
 
      <script src="..//script/script.js"></script>
@@ -340,6 +139,35 @@ INSERT INTO Payment (payment_id, emp_id, amount, payment_date) VALUES
      </script>
 
 
+     <script>
+          document.addEventListener('DOMContentLoaded', function() {
+               var selecttaskButtons = document.querySelectorAll("#selectTask");
+
+               selecttaskButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                         var connection = new XMLHttpRequest();
+
+                         var userId = button.getAttribute('data-userid');
+                         var taskId = button.getAttribute('data-taskid');
+                         var taskType = button.getAttribute('data-tasktype');
+
+                         connection.onreadystatechange = function() {
+                              if (connection.readyState == 4 && connection.status == 200) {
+                                   var response = JSON.parse(connection.responseText);
+                                   console.log(response);
+                              }
+                         }
+
+                         connection.open("POST", "..//backendPhp//operationSignup.php", true);
+                         connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                         var data = "userId=" + (userId) + "&taskId=" + (taskId) + "&taskType=" + (taskType);
+
+                         connection.send(data);
+                    });
+               });
+          });
+     </script>
 </body>
 
 </html>

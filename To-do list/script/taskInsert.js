@@ -35,6 +35,9 @@ function addTask(){
                if (connection.readyState == 4 && connection.status == 200) {
                     document.getElementById("addTask").style.display = "none";
                     var response = connection.responseText;
+                    console.log(response);
+                    console.log('responded');
+
                }
           }
 
