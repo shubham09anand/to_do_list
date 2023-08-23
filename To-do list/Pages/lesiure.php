@@ -24,6 +24,9 @@ if ($fetchQuery) {
 } else {
 }
 
+$statusComplete = "";
+$statusnotComplete = "";
+
 ?>
 
 <body class="">
@@ -33,7 +36,7 @@ if ($fetchQuery) {
      </script>
      <!-- navbar ends -->
 
-     <div class="flex space-x-5">
+     <div class="flex md:space-x-5">
 
           <script>
                dashboard()
@@ -64,16 +67,31 @@ if ($fetchQuery) {
                               $userId = $data['userId'];
                               $taskId = $data['taskId'];
                               $taskType = $data['taskType'];
+                              $taskDescription = $data['taskDescription'];
+                              $taskTitle = $data['taskTitle'];
+                              $taskdueDate = $data['taskdueDate'];
+                              $taskStatus = $data['taskStatus'];
 
+                              if ($taskStatus == 'Completed') {
+                                   $statusComplete = 'hidden';
+                              } else {
+                                   $statusnotComplete = "hidden";
+                              }
                          ?>
 
                               <div class="flex w-full justify-between border border-b-4 px-5 rounded-xl place-content-center item-center">
                                    <div>
-                                        <div id="taskTitle" class=" w-full pt-3 ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                        <div class="flex space-x-5 w-96">
+                                             <div id="taskTitle" class=" w-full pt-3 ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                             <div class="<?php echo $statusComplete ?> hidden w-fit h-fit p-1 px-2 mt-3 text-xs bg-green-600 text-white rounded-full border-2 ">Completed</div>
+                                             <div class="<?php echo $statusnotComplete ?> hidden w-40 h-fit p-1 px-2 mt-3 text-xs text-center bg-red-600 text-white rounded-full border-2 ">Not Completed</div>
+
+
+                                        </div>
                                         <div id="taskDescription" class="pl-2 text-sm mb-2 w-full h-6 text-ellipsis overflow-hidden capitalize"><?php echo $data['taskDescription'] ?></div>
                                    </div>
-                                   <div class="hover:bg-slate-200 h-fit w-fit mt-6 rounded-md">
-                                        <svg id="selectTask" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 sm:w-7 h-6 sm:h-7">
+                                   <div class="showtaskDetails hover:bg-slate-200 h-fit w-fit mt-6 rounded-md">
+                                        <svg id="selectTask" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 sm:w-7 h-6 sm:h-7">
                                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                         </svg>
                                    </div>
@@ -94,18 +112,22 @@ if ($fetchQuery) {
                          </svg>
                     </div>
                </div>
-               <div id="slectedtaskTitle" class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left ">Tiltle
+               <div id="slectedtaskTitle" class="font-semibold text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left">Tiltle
                     of
                     selected task</div>
                <div id="slectedtaskDescription" class="font-thin text-gray-600 tracking-wide text-md border border-gray-600 py-2 px-3 rounded-xl text-left h-48">
                     Discription of selected task</div>
                <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between ">
                     <div class="">List</div>
-                    <div>Selected list</div>
+                    <div id="selectedtaskList">Selected list</div>
                </div>
                <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between">
-                    <div class="">Due Date</div>
-                    <div>Date</div>
+                    <div>Due Date</div>
+                    <div id="selectedtaskDate">Date</div>
+               </div>
+               <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between">
+                    <div>Task Status</div>
+                    <div id="selectedtaskStatus">Not Completed</div>
                </div>
 
                <div class="space-y-5 px-2">
@@ -113,8 +135,8 @@ if ($fetchQuery) {
                     <div id="taskeditButton" class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>"> Edit Task</div>
                     <div id="taskdeleteButton" class="text-center justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-700 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>"> Delete Task</div>
                </div>
-
           </div>
+
      </div>
 
      <script src="..//script/taskInsert.js"></script>
@@ -150,14 +172,32 @@ if ($fetchQuery) {
                var taskeditButton = document.getElementById("taskeditButton");
                var taskdeleteButton = document.getElementById("taskdeleteButton");
 
+               var task = document.getElementById("task");
+               var slectedtaskTitle = document.getElementById("slectedtaskTitle");
+               var slectedtaskDescription = document.getElementById("slectedtaskDescription");
+               var selectedtaskList = document.getElementById("selectedtaskList");
+               var selectedtaskDate = document.getElementById("selectedtaskDate");
+               var selectedtaskStatus = document.getElementById("selectedtaskStatus");
+
                selecttaskButtons.forEach((button) => {
                     button.addEventListener('click', function() {
 
                          userId = button.getAttribute('data-userid');
                          taskId = button.getAttribute('data-taskid');
                          taskType = button.getAttribute('data-tasktype');
+                         taskTitle = button.getAttribute('data-tasktitle');
+                         taskdescription = button.getAttribute('data-taskdescription');
+                         taskdescription = button.getAttribute('data-taskdescription');
+                         datataskduedate = button.getAttribute('data-taskduedate');
+                         selectedtaskstatus = button.getAttribute('data-taskstatus');
 
                          console.log(userId, taskId, taskType);
+
+                         slectedtaskTitle.innerHTML = taskTitle;
+                         slectedtaskDescription.innerHTML = taskdescription;
+                         selectedtaskList.innerHTML = taskName;
+                         selectedtaskDate.innerHTML = datataskduedate;
+                         selectedtaskStatus.innerHTML = selectedtaskstatus;
 
                          taskcompleteButton.setAttribute('data-userid', userId);
                          taskcompleteButton.setAttribute('data-taskid', taskId);
@@ -192,7 +232,7 @@ if ($fetchQuery) {
 
                     var data = "comuserId=" + encodeURIComponent(comuserId) +
                          "&comtaskkId=" + encodeURIComponent(comtaskkId) +
-                         "&comtaskType=" + encodeURIComponent(comtaskType)+
+                         "&comtaskType=" + encodeURIComponent(comtaskType) +
                          "&action=" + encodeURIComponent(action);
 
                     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
@@ -219,7 +259,7 @@ if ($fetchQuery) {
 
                     var data = "edituserId=" + encodeURIComponent(edituserId) +
                          "&edittaskkId=" + encodeURIComponent(edittaskkId) +
-                         "&edittaskType=" + encodeURIComponent(edittaskType)+
+                         "&edittaskType=" + encodeURIComponent(edittaskType) +
                          "&action=" + encodeURIComponent(action);
 
                     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
@@ -228,9 +268,9 @@ if ($fetchQuery) {
                });
 
                taskdeleteButton.addEventListener('click', () => {
-                    console.log(taskdeleteButton.getAttribute('data-userid'), taskdeleteButton.getAttribute('data-taskid'), taskdeleteButton.getAttribute('data-tasktype'));
+                    console.log( "del" +taskdeleteButton.getAttribute('data-userid'), taskdeleteButton.getAttribute('data-taskid'), taskdeleteButton.getAttribute('data-tasktype'));
 
-                    const action = "delete";
+                    const action = "Delete";
                     var deluserId = taskdeleteButton.getAttribute('data-userid');
                     var deltaskkId = taskdeleteButton.getAttribute('data-taskid');
                     var deltaskType = taskdeleteButton.getAttribute('data-userid');
@@ -245,7 +285,7 @@ if ($fetchQuery) {
 
                     var data = "deluserId=" + encodeURIComponent(deluserId) +
                          "&deltaskkId=" + encodeURIComponent(deltaskkId) +
-                         "&deltaskType=" + encodeURIComponent(deltaskType)+
+                         "&deltaskType=" + encodeURIComponent(deltaskType) +
                          "&action=" + encodeURIComponent(action);
 
                     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
@@ -254,6 +294,14 @@ if ($fetchQuery) {
                });
 
 
+          });
+     </script>
+
+     <script>
+          $(document).ready(function() {
+               $(".showtaskDetails").click(function() {
+                    $("#task").show(500);
+               });
           });
      </script>
 </body>

@@ -20,20 +20,40 @@ else{
                $comtaskkId = $_REQUEST['comtaskkId'];
                $comtaskType = $_REQUEST['comtaskType'];
 
-               echo $comtaskkId;
+               echo $comtaskType;
      
-               // $sqlQuery = "UPDATE tasktable SET taskStatus = 'Completed' WHERE userId = '$comuserId' AND taskId = '$comtaskkId' AND taskType = 'Lesiure'";
+               $sqlQuery = "UPDATE tasktable SET taskStatus = 'Completed' WHERE userId = '$comuserId' AND taskId = '$comtaskkId' AND taskType = 'Lesiure'";
      
-               // if ($sqlQuery) {
+               if ($sqlQuery) {
 
-               //      mysqli_query($conn,$sqlQuery);
-               //      $action = 1;
-               //      echo "success";
-               // }
-               // else {
-               //      $action = -1;
-               //      echo "denied";
-               // }
+                    mysqli_query($conn,$sqlQuery);
+                    $action = 1;
+                    echo "success";
+               }
+               else {
+                    $action = -1;
+                    echo "denied";
+               }
+     
+          }
+          else if ($action == 'Delete') {
+     
+               $deluserId = $_REQUEST['deluserId'];
+               $deltaskkId = $_REQUEST['deltaskkId'];
+               $deltaskType = $_REQUEST['deltaskType'];
+
+               echo $deltaskkId;
+     
+               $sqlQuery = "DELETE FROM tasktable WHERE taskId = '$deltaskkId'";
+               if ($sqlQuery) {
+                    mysqli_query($conn,$sqlQuery);
+                    $action = 1;
+                    echo "success";
+               }
+               else {
+                    $action = -1;
+                    echo "denied";
+               }
      
           }
        

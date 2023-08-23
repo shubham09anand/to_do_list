@@ -50,5 +50,10 @@ function addTask(){
           connection.open("POST", "../backendPhp/OperationtaskInsert.php", true);
           connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           connection.send(data);
+
+          setTimeout(()=>{
+               location.reload(); 
+          },3000)
+
      }
 }
