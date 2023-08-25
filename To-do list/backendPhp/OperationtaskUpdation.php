@@ -19,10 +19,8 @@ else{
                $comuserId = $_REQUEST['comuserId'];
                $comtaskkId = $_REQUEST['comtaskkId'];
                $comtaskType = $_REQUEST['comtaskType'];
-
-               echo $comtaskType;
      
-               $sqlQuery = "UPDATE tasktable SET taskStatus = 'Completed' WHERE userId = '$comuserId' AND taskId = '$comtaskkId' AND taskType = 'Lesiure'";
+               $sqlQuery = "UPDATE tasktable SET taskStatus = 'Completed' WHERE userId = '$comuserId' AND taskId = '$comtaskkId' AND taskType = '$comtaskType'";
      
                if ($sqlQuery) {
 
@@ -41,10 +39,30 @@ else{
                $deluserId = $_REQUEST['deluserId'];
                $deltaskkId = $_REQUEST['deltaskkId'];
                $deltaskType = $_REQUEST['deltaskType'];
-
-               echo $deltaskkId;
      
                $sqlQuery = "DELETE FROM tasktable WHERE taskId = '$deltaskkId'";
+               if ($sqlQuery) {
+                    mysqli_query($conn,$sqlQuery);
+                    $action = 1;
+                    echo "success";
+               }
+               else {
+                    $action = -1;
+                    echo "denied";
+               }
+     
+          }
+          else if ($action == 'Edit') {
+     
+               $edituserId = $_REQUEST['edituserId'];
+               $edittaskkId = $_REQUEST['edittaskkId'];
+               $edittaskType = $_REQUEST['edittaskType'];
+               $newtaskTitle = $_REQUEST['newtaskTitle'];
+               $newtaskDescription = $_REQUEST['newtaskDescription'];
+               $newtadkDueDate = $_REQUEST['newtadkDueDate'];
+     
+               $sqlQuery = "UPDATE tasktable SET taskTitle='$newtaskTitle',taskDescription='$newtaskDescription',taskdueDate='$newtadkDueDate' WHERE taskId='$edittaskkId' and userId='$edituserId' and taskType='$edittaskType'";
+
                if ($sqlQuery) {
                     mysqli_query($conn,$sqlQuery);
                     $action = 1;

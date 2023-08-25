@@ -16,12 +16,10 @@
 
 $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list');
 
-$fetchQuery = "SELECT * FROM tasktable WHERE taskType = 'lesiure' and userID = 1 ";
+$fetchQuery = "SELECT * FROM `tasktable` WHERE taskType = 'study' and userID = 1";
 
 if ($fetchQuery) {
-
      $result = mysqli_query($conn, $fetchQuery);
-     $resultNums = mysqli_num_rows($result);
 } else {
 }
 
@@ -45,7 +43,7 @@ $statusnotComplete = "";
 
           <!-- main starts -->
           <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl p-5 space-y-3">
-               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Lesiure</div>
+               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Study</div>
                <div class="w-full min-h-[600px] max-h-[601px] overflow-y-scroll border rounded-xl">
                     <div class="space-y-3 p-5">
                          <div class="flex w-full justify-between py-3 border px-5 rounded-xl">
@@ -63,9 +61,7 @@ $statusnotComplete = "";
                               </script>
                          </div>
 
-                         <?php
-                         
-                         while ($data = mysqli_fetch_array($result)) {
+                         <?php while ($data = mysqli_fetch_array($result)) {
 
                               $userId = $data['userId'];
                               $taskId = $data['taskId'];
@@ -74,7 +70,6 @@ $statusnotComplete = "";
                               $taskTitle = $data['taskTitle'];
                               $taskdueDate = $data['taskdueDate'];
                               $taskStatus = $data['taskStatus'];
-                              $taskPriority = $data['taskPriority'];
 
                               if ($taskStatus == 'Completed') {
                                    $statusComplete = 'hidden';
@@ -95,7 +90,7 @@ $statusnotComplete = "";
                                         <div id="taskDescription" class="pl-2 text-sm mb-2 w-40 sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
                                    </div>
                                    <div class="showtaskDetails hover:bg-slate-200 h-fit w-fit mt-6 rounded-md">
-                                        <svg id="selectTask" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskPriority="<?php echo $taskPriority; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 sm:w-7 h-6 sm:h-7">
+                                        <svg id="selectTask" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 sm:w-7 h-6 sm:h-7">
                                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                         </svg>
                                    </div>
@@ -116,38 +111,26 @@ $statusnotComplete = "";
                          </svg>
                     </div>
                </div>
-               <input autocomplete="off" type="text" id="slectedtaskTitle" class="shadow-xl font-semibold text-gray-600 tracking-wide text-md py-2 px-3 rounded-xl text-left w-full bg-transparent outline-none" placeholder="Title">
-               <textarea autocomplete="off" id="slectedtaskDescription" class="shadow-xl font-thin text-black tracking-wide text-md py-2 px-3 rounded-xl text-left h-48 w-full resize-none bg-transparent outline-none" name="" placeholder="Description of selected task"></textarea>
+               <input type="text" id="slectedtaskTitle" class="shadow-xl font-semibold text-gray-600 tracking-wide text-md py-2 px-3 rounded-xl text-left w-full bg-transparent outline-none" placeholder="Title">
+               <textarea id="slectedtaskDescription" class="shadow-xl font-thin text-black tracking-wide text-md py-2 px-3 rounded-xl text-left h-48 w-full resize-none bg-transparent outline-none" name="" placeholder="Description of selected task"></textarea>
                <div class="flex px-4 py-2 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between ">
                     <div class="">List</div>
                     <div id="selectedtaskList">Selected list</div>
                </div>
-               <div class="flex px-4 py-2 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between ">
-                    <div class="">Priority</div>
-                    <div id="selectedtaskPriority">Task Priority</div>
-               </div>
                <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between place-content-center item-center">
                     <div class="pt-1">Due Date</div>
-                    <input autocomplete="off" id="selectedtaskDate" type="date" value="2023-08-17" class="bg-white shadow-xl bg-gray-100 translate-x-8 p-1 rounded-md shadwo-sm">
+                    <input id="selectedtaskDate" type="date" value="2023-08-17" class="bg-white shadow-xl bg-gray-100 translate-x-8 p-1 rounded-md shadwo-sm">
                </div>
                <div class="flex px-4 py-2 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between">
                     <div>Task Status</div>
                     <div id="selectedtaskStatus">Not Completed</div>
                </div>
 
-               <?php if ($resultNums > 0) { ?>
                <div class="space-y-5 px-2">
-                    <div id="taskcompleteButton" class="mt-20 text-center active:scale-90 justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>">Done</div>
-                    <div id="taskeditButton" class="mt-20 text-center active:scale-90 justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>"> Edit Task</div>
-                    <div id="taskdeleteButton" class="text-center active:scale-90 justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-700 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>"> Delete Task</div>
+                    <div id="taskcompleteButton" class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>">Done</div>
+                    <div id="taskeditButton" class="mt-20 text-center justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>"> Edit Task</div>
+                    <div id="taskdeleteButton" class="text-center justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-700 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>"> Delete Task</div>
                </div>
-               <?php } else { ?>
-               <div class="space-y-5 px-2">
-                    <div id="taskcompleteButton" class="mt-20 text-center active:scale-90 justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-green-500 rounded-md hover:bg-green-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl">Done</div>
-                    <div id="taskeditButton" class="mt-20 text-center active:scale-90 justify-center w-full px-6 py-3 mb-2 text-lg text-white bg-yellow-500 rounded-md hover:bg-yellow-600 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl"> Edit Task</div>
-                    <div id="taskdeleteButton" class="text-center active:scale-90 justify-center  px-6 py-3 mb-2 text-lg text-white bg-red-600 rounded-md hover:bg-red-700 sm:w-auto sm:mb-0" data-primary="green-400" data-rounded="rounded-2xl"> Delete Task</div>
-               </div>
-               <?php } ?>
           </div>
 
      </div>
@@ -168,15 +151,16 @@ $statusnotComplete = "";
 
      <script src="..//script/script.js"></script>
 
+
      <script>
-          document.getElementById("todoType").innerHTML = 'Lesiure';
+          document.getElementById("todoType").innerHTML = 'Study';
      </script>
 
-    
+
      <script>
           document.addEventListener('DOMContentLoaded', function() {
 
-               var userId, taskId, taskType ,taskPriority;
+               var userId, taskId, taskType;
 
                var selecttaskButtons = document.querySelectorAll("#selectTask");
 
@@ -190,9 +174,6 @@ $statusnotComplete = "";
                var selectedtaskList = document.getElementById("selectedtaskList");
                var selectedtaskDate = document.getElementById("selectedtaskDate");
                var selectedtaskStatus = document.getElementById("selectedtaskStatus");
-               var selectedtaskPriority = document.getElementById("selectedtaskPriority");
-
-               console.log(document.getElementById("selectTask").getAttribute('data-taskPriority'));
 
                selecttaskButtons.forEach((button) => {
                     button.addEventListener('click', function() {
@@ -202,18 +183,17 @@ $statusnotComplete = "";
                          taskType = button.getAttribute('data-tasktype');
                          taskTitle = button.getAttribute('data-tasktitle');
                          taskdescription = button.getAttribute('data-taskdescription');
-                         taskPriority = button.getAttribute('data-taskPriority');
+                         taskdescription = button.getAttribute('data-taskdescription');
                          datataskduedate = button.getAttribute('data-taskduedate');
                          selectedtaskstatus = button.getAttribute('data-taskstatus');
 
-                         console.log(userId, taskId, taskType , taskPriority);
+                         console.log(userId, taskId, taskType);
 
                          slectedtaskTitle.value = taskTitle;
                          slectedtaskDescription.value = taskdescription;
                          selectedtaskList.innerHTML = taskName;
                          selectedtaskDate.value = datataskduedate;
                          selectedtaskStatus.innerHTML = selectedtaskstatus;
-                         // selectedtaskPriority.innerHTML = taskPriority;
 
                          taskcompleteButton.setAttribute('data-userid', userId);
                          taskcompleteButton.setAttribute('data-taskid', taskId);
@@ -231,12 +211,12 @@ $statusnotComplete = "";
                });
 
                taskcompleteButton.addEventListener('click', () => {
-                    // console.log(taskcompleteButton.getAttribute('data-userid'), taskcompleteButton.getAttribute('data-taskid'), taskcompleteButton.getAttribute('data-tasktype'));
+                    console.log(taskcompleteButton.getAttribute('data-userid'), taskcompleteButton.getAttribute('data-taskid'), taskcompleteButton.getAttribute('data-tasktype'));
 
                     const action = "Complete";
                     var comuserId = taskcompleteButton.getAttribute('data-userid');
                     var comtaskkId = taskcompleteButton.getAttribute('data-taskid');
-                    var comtaskType = taskcompleteButton.getAttribute('data-tasktype');
+                    var comtaskType = taskcompleteButton.getAttribute('data-userid');
 
                     var connection = new XMLHttpRequest();
                     connection.onreadystatechange = function() {
@@ -258,16 +238,12 @@ $statusnotComplete = "";
 
 
                taskeditButton.addEventListener('click', () => {
-                    // console.log(taskeditButton.getAttribute('data-userid'), taskeditButton.getAttribute('data-taskid'), taskeditButton.getAttribute('data-tasktype'));
+                    console.log(taskeditButton.getAttribute('data-userid'), taskeditButton.getAttribute('data-taskid'), taskeditButton.getAttribute('data-tasktype'));
 
-                    const action = "Edit";
+                    const action = "edit";
                     var edituserId = taskeditButton.getAttribute('data-userid');
                     var edittaskkId = taskeditButton.getAttribute('data-taskid');
-                    var edittaskType = taskeditButton.getAttribute('data-tasktype');
-
-                    var newtaskTitle = document.getElementById("slectedtaskTitle").value;
-                    var newtaskDescription = document.getElementById("slectedtaskDescription").value;
-                    var newtadkDueDate = document.getElementById("selectedtaskDate").value;
+                    var edittaskType = taskeditButton.getAttribute('data-userid');
 
                     var connection = new XMLHttpRequest();
                     connection.onreadystatechange = function() {
@@ -280,9 +256,6 @@ $statusnotComplete = "";
                     var data = "edituserId=" + encodeURIComponent(edituserId) +
                          "&edittaskkId=" + encodeURIComponent(edittaskkId) +
                          "&edittaskType=" + encodeURIComponent(edittaskType) +
-                         "&newtaskTitle=" + encodeURIComponent(newtaskTitle) +
-                         "&newtaskDescription=" + encodeURIComponent(newtaskDescription) +
-                         "&newtadkDueDate=" + encodeURIComponent(newtadkDueDate) +
                          "&action=" + encodeURIComponent(action);
 
                     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
@@ -291,12 +264,12 @@ $statusnotComplete = "";
                });
 
                taskdeleteButton.addEventListener('click', () => {
-                    // console.log( "del" +taskdeleteButton.getAttribute('data-userid'), taskdeleteButton.getAttribute('data-taskid'), taskdeleteButton.getAttribute('data-tasktype'));
+                    console.log("del" + taskdeleteButton.getAttribute('data-userid'), taskdeleteButton.getAttribute('data-taskid'), taskdeleteButton.getAttribute('data-tasktype'));
 
                     const action = "Delete";
                     var deluserId = taskdeleteButton.getAttribute('data-userid');
                     var deltaskkId = taskdeleteButton.getAttribute('data-taskid');
-                    var deltaskType = taskdeleteButton.getAttribute('data-tasktype');
+                    var deltaskType = taskdeleteButton.getAttribute('data-userid');
 
                     var connection = new XMLHttpRequest();
                     connection.onreadystatechange = function() {
