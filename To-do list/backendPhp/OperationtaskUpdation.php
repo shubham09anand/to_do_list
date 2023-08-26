@@ -6,77 +6,69 @@ $actionStatus = 0;
 
 if (!$conn) {
      die("Connection failed: " . mysqli_connect_error());
-}
-
-else{
+} else {
 
      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           $action = $_REQUEST['action'];
-     
+
           if ($action == 'Complete') {
-     
+
                $comuserId = $_REQUEST['comuserId'];
                $comtaskkId = $_REQUEST['comtaskkId'];
                $comtaskType = $_REQUEST['comtaskType'];
-     
+
                $sqlQuery = "UPDATE tasktable SET taskStatus = 'Completed' WHERE userId = '$comuserId' AND taskId = '$comtaskkId' AND taskType = '$comtaskType'";
-     
+
                if ($sqlQuery) {
 
-                    mysqli_query($conn,$sqlQuery);
+                    mysqli_query($conn, $sqlQuery);
                     $action = 1;
                     echo "success";
-               }
-               else {
+               } else {
                     $action = -1;
                     echo "denied";
                }
-     
-          }
-          else if ($action == 'Delete') {
-     
+          } else if ($action == 'Delete') {
+
                $deluserId = $_REQUEST['deluserId'];
                $deltaskkId = $_REQUEST['deltaskkId'];
                $deltaskType = $_REQUEST['deltaskType'];
-     
+
                $sqlQuery = "DELETE FROM tasktable WHERE taskId = '$deltaskkId'";
                if ($sqlQuery) {
-                    mysqli_query($conn,$sqlQuery);
+                    mysqli_query($conn, $sqlQuery);
                     $action = 1;
                     echo "success";
-               }
-               else {
+               } else {
                     $action = -1;
                     echo "denied";
                }
-     
-          }
-          else if ($action == 'Edit') {
-     
+          } else if ($action == 'Edit') {
+
                $edituserId = $_REQUEST['edituserId'];
                $edittaskkId = $_REQUEST['edittaskkId'];
                $edittaskType = $_REQUEST['edittaskType'];
                $newtaskTitle = $_REQUEST['newtaskTitle'];
                $newtaskDescription = $_REQUEST['newtaskDescription'];
                $newtadkDueDate = $_REQUEST['newtadkDueDate'];
-     
-               $sqlQuery = "UPDATE tasktable SET taskTitle='$newtaskTitle',taskDescription='$newtaskDescription',taskdueDate='$newtadkDueDate' WHERE taskId='$edittaskkId' and userId='$edituserId' and taskType='$edittaskType'";
 
-               if ($sqlQuery) {
-                    mysqli_query($conn,$sqlQuery);
-                    $action = 1;
-                    echo "success";
+               if (strlen($newtaskTitle) == 0 || strlen($newtaskDescription) == 0 || strlen($newtadkDueDate) == 0) {
+                    echo "failed";
+               } else {
+                    $sqlQuery = "UPDATE tasktable SET taskTitle='$newtaskTitle',taskDescription='$newtaskDescription',taskdueDate='$newtadkDueDate' WHERE taskId='$edittaskkId' and userId='$edituserId' and taskType='$edittaskType'";
+
+                    if ($sqlQuery) {
+                         mysqli_query($conn, $sqlQuery);
+                         $action = 1;
+                         echo "success";
+                    } else {
+                         $action = -1;
+                         echo "denied";
+                    }
                }
-               else {
-                    $action = -1;
-                    echo "denied";
-               }
-     
           }
-       
      }
-
 }
 
 
