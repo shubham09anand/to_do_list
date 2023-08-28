@@ -23,12 +23,17 @@ if (!$conn) {
                if ($sqlQuery) {
 
                     mysqli_query($conn, $sqlQuery);
-                    $action = 1;
+                    $actionStatus = 1;
                     echo "success";
                } else {
-                    $action = -1;
+                    $actionStatus = -1;
                     echo "denied";
                }
+
+               $response = array('actionStatus' => $actionStatus);
+               echo json_encode($response);
+               
+               mysqli_close($conn);
           } else if ($action == 'Delete') {
 
                $deluserId = $_REQUEST['deluserId'];
@@ -38,12 +43,16 @@ if (!$conn) {
                $sqlQuery = "DELETE FROM tasktable WHERE taskId = '$deltaskkId'";
                if ($sqlQuery) {
                     mysqli_query($conn, $sqlQuery);
-                    $action = 1;
+                    $actionStatus = 1;
                     echo "success";
                } else {
-                    $action = -1;
+                    $actionStatus = -1;
                     echo "denied";
                }
+               $response = array('actionStatus' => $actionStatus);
+               echo json_encode($response);
+               
+               mysqli_close($conn);
           } else if ($action == 'Edit') {
 
                $edituserId = $_REQUEST['edituserId'];
@@ -60,13 +69,17 @@ if (!$conn) {
 
                     if ($sqlQuery) {
                          mysqli_query($conn, $sqlQuery);
-                         $action = 1;
+                         $actionStatus = 1;
                          echo "success";
                     } else {
-                         $action = -1;
+                         $actionStatus = -1;
                          echo "denied";
                     }
                }
+               $response = array('actionStatus' => $actionStatus);
+               echo json_encode($response);
+               
+               mysqli_close($conn);
           }
      }
 }

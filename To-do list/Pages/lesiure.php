@@ -75,23 +75,11 @@ $statusnotComplete = "";
                               $taskdueDate = $data['taskdueDate'];
                               $taskStatus = $data['taskStatus'];
                               $taskPriority = $data['taskPriority'];
-
-                              if ($taskStatus == 'Completed') {
-                                   $statusComplete = 'hidden';
-                              } else {
-                                   $statusnotComplete = "hidden";
-                              }
                          ?>
 
                               <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border border-b-4 px-5 rounded-xl place-content-center item-center">
                                    <div>
-                                        <div class="flex space-x-5 w-96">
-                                             <div id="taskTitle" class=" w-full pt-3 ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
-                                             <div class="<?php echo $statusComplete ?> hidden w-fit h-fit p-1 px-2 mt-3 text-xs bg-green-600 text-white rounded-full border-2 ">Completed</div>
-                                             <div class="<?php echo $statusnotComplete ?> hidden w-40 h-fit p-1 px-2 mt-3 text-xs text-center bg-red-600 text-white rounded-full border-2 ">Not Completed</div>
-
-
-                                        </div>
+                                        <div id="taskTitle" class=" w-full pt-3 ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
                                         <div id="taskDescription" class="pl-2 text-sm mb-2 w-40 sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
                                    </div>
                                    <div class="showtaskDetails hover:bg-slate-200 h-fit w-fit mt-6 rounded-md">
@@ -128,7 +116,7 @@ $statusnotComplete = "";
                </div>
                <div class="flex px-4 py-1 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between place-content-center item-center">
                     <div class="pt-1">Due Date</div>
-                    <input autocomplete="off" id="selectedtaskDate" type="date" value="2023-08-17" class="bg-white shadow-xl bg-gray-100 translate-x-8 p-1 rounded-md shadwo-sm">
+                    <input autocomplete="off" id="selectedtaskDate" type="date" value="2023-08-17" class=" shadow-xl bg-gray-100 translate-x-8 p-1 rounded-md shadwo-sm">
                </div>
                <div class="flex px-4 py-2 hover:bg-slate-200 rounded-lg pl-4 pr-10 justify-between">
                     <div>Task Status</div>
@@ -241,7 +229,7 @@ $statusnotComplete = "";
                     var connection = new XMLHttpRequest();
                     connection.onreadystatechange = function() {
                          if (connection.readyState == 4 && connection.status == 200) {
-                              var response = connection.responseText;
+                              var response = JSON.parse(connection.responseText);
                               console.log(response);
                          }
                     }
@@ -272,7 +260,7 @@ $statusnotComplete = "";
                     var connection = new XMLHttpRequest();
                     connection.onreadystatechange = function() {
                          if (connection.readyState == 4 && connection.status == 200) {
-                              var response = connection.responseText;
+                              var response = JSON.parse(connection.responseText);
                               console.log(response);
                          }
                     }
@@ -302,7 +290,7 @@ $statusnotComplete = "";
                     var connection = new XMLHttpRequest();
                     connection.onreadystatechange = function() {
                          if (connection.readyState == 4 && connection.status == 200) {
-                              var response = connection.responseText;
+                              var response = JSON.parse(connection.responseText);
                               console.log(response);
                          }
                     }
