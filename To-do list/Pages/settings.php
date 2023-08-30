@@ -39,17 +39,12 @@
                <script>dashboard()</script>
                <!-- dashboard ends -->
 
-               <div class="w-full bg-white h-screen mt-5 rounded-xl">
+               <div class="w-full bg-white h-screen mt-5 rounded-xl px-4">
                     <div class="w-5/4 bg-gray-100 space-y-2 sm:space-y-0 sm:flex justify-between px-10 py-2 rounded-lg">
-                         <div class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">
-                              Profile</div>
-                         <div id="updateProfile"
-                              class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">
-                              Update Profile</div>
-                         <div class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">
-                              Password</div>
-                         <div class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">
-                              Account</div>
+                         <div class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit"> Profile</div>
+                         <div id="updateProfile" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit"> Update Profile</div>
+                         <div class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit"> Password</div>
+                         <div class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit"> Account</div>
                     </div>
 
                     <!-- Profile starts -->
@@ -57,32 +52,22 @@
                          <div class="flex flex-wrap w-full h-full">
                               <div
                                    class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-10">
-                                   <div class="h-[200px] bg-contain"><img draggable="false"
-                                             src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg"
-                                             class="h-full w-full overflow-hidden" alt=""></div>
+                                   <div class="h-[200px] bg-contain"><img draggable="false"src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-full w-full overflow-hidden" alt=""></div>
                                    <div class="px-5 py-2 flex flex-col gap-3 pb-6">
-                                        <div
-                                             class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-14 border-white'>
-                                             <img draggable="false"
-                                                  src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60'
-                                                  class='w-full h-full rounded-full object-center object-cover' alt="">
+                                        <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-14 border-white'>
+                                             <img draggable="false" src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60' class='w-full h-full rounded-full object-center object-cover' alt="">
                                         </div>
                                         <div class="mt-5">
-                                             <h3 class="text-xl text-slate-900 relative font-bold leading-6">
-                                                  $user_data['user_name'] </h3>
+                                             <h3 class="text-xl text-slate-900 relative font-bold leading-6">$user_data['user_name'] </h3>
                                              <p class="text-sm text-gray-600"> $user_data['user_email'] </p>
                                         </div>
                                         <h4 class="text-md font-medium leading-3">About</h4>
-                                        <p class="text-sm text-stone-500 text-justify"> Lorem ipsum, dolor sit amet
-                                             consectetur
-                                             adipisicing elit. Assumenda est vel quis voluptatum dolores natus? Officiis
-                                             provident veniam sed nulla nesciunt, incidunt enim? </p>
+                                        <p class="text-sm text-stone-500 text-justify"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda est vel quis voluptatum dolores natus? Officiis provident veniam sed nulla nesciunt, incidunt enim? </p>
                                         <div class="text-gray-700 -ml-5 sm:-ml-0">
                                              <div class="grid md:grid-cols-2 text-sm gap-3">
                                                   <div class="grid grid-cols-2">
                                                        <div class="px-4 py-2 font-semibold">First Name</div>
-                                                       <div id="" class=" px-4 py-2">
-                                                            $user_data['first_name'] </div>
+                                                       <div id="" class=" px-4 py-2"> $user_data['first_name'] </div>
                                                   </div>
                                                   <div class="grid grid-cols-2">
                                                        <div class="px-4 py-2 font-semibold">Last Name</div>
@@ -111,14 +96,11 @@
                                                   <div class="grid grid-cols-2">
                                                        <div class="px-4 py-2 font-semibold">Email</div>
                                                        <div class="px-4 py-2">
-                                                            <a class=" text-blue-800"> $user_data['user_email']
-                                                            </a>
+                                                            <a class=" text-blue-800"> $user_data['user_email']</a>
                                                        </div>
                                                   </div>
 
-                                                  <div id="save"
-                                                       class="hidden px-3 py-1 rounded-lg bg-blue-500 text-black text-lg font-medium w-fit ml-3">
-                                                       Save</div>
+                                                  <div id="save" class="hidden px-3 py-1 rounded-lg bg-blue-500 text-black text-lg font-medium w-fit ml-3">Save</div>
                                              </div>
                                         </div>
                                    </div>
@@ -264,17 +246,14 @@
                                    <div class="flex flex-col space-y-5">
                                         <label for="email">
                                              <p class="font-medium text-slate-700 pb-2">Enter your new Password</p>
-                                             <input autocomplete="off" id="newPassword" name="newPassword" type="text"
-                                                  class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
-                                                  placeholder="Password">
+                                             <input autocomplete="off" id="newPassword" name="newPassword" type="text" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow" placeholder="Password">
+                                             <div id="emptyPasswordWarning" class="text-red-500 text-sm opacity-0">Enter your new Passowrd</div>
                                         </label>
 
-                                        <button type="button"
-                                             class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+                                        <button id="updatePassword" type="button" class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
                                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                   stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                  <path stroke-linecap="round" stroke-linejoin="round"
-                                                       d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+                                                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
                                              </svg>
                                              <span>Reset password</span>
                                         </button>
@@ -285,7 +264,7 @@
                     <!-- password reset ends -->
 
                     <!-- Delete account starts -->
-                    <div class="">
+                    <d iv class="">
                          <div class="mt-20 font-sans leading-tight min-h-screen bg-grey-lighter p-8">
                               <div class="w-1/2 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
                                    <div class="bg-cover h-40"
@@ -334,6 +313,38 @@
                     $("#profile").toggle(500);
                });
           });
+
+          const updatePassword = document.getElementById("updatePassword");
+          
+          updatePassword.addEventListener('click' , ()=>{
+               var newPassword = document.getElementById("newPassword");
+               const emptyPasswordWarning =document.getElementById("emptyPasswordWarning");
+               const action = "updatePassword";
+
+               if (newPassword.value == "") {
+                    emptyPasswordWarning.style.opacity = 1;
+                    setTimeout(()=>{
+                         emptyPasswordWarning.style.transition = "opacity 2000ms";
+                         emptyPasswordWarning.style.opacity = 0;
+                    },2000)
+               }
+               else{
+                    var connection = new XMLHttpRequest();
+                    connection.onreadystatechange = function() {
+                         if (connection.readyState == 4 && connection.status == 200) {
+                              var response = JSON.parse(connection.responseText);
+                              var actionStatus = (response.actionStatus);
+                              console.log(actionStatus);
+                         }
+                    }
+
+                    var data = "newPassword=" + encodeURIComponent(newPassword.value) +
+                         "&action=" + encodeURIComponent(action);
+                    connection.open("POST", "../backendPhp/updateuserCred.php", true);
+                    connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    connection.send(data);
+               }
+          })
      </script>
 
 

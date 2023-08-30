@@ -25,9 +25,6 @@ if ($fetchQuery) {
 } else {
 }
 
-$statusComplete = "";
-$statusnotComplete = "";
-
 ?>
 
 <body class="">
