@@ -35,6 +35,27 @@ if (!$conn) {
                
                mysqli_close($conn);
           } 
+          else if ($action == 'deleteAccount') {
+
+               $userId = 41;
+
+               $sqlQuery = "DELETE FROM userinfo WHERE userId = '$userId'";
+
+               if ($sqlQuery) {
+
+                    mysqli_query($conn, $sqlQuery);
+                    $actionStatus = 1;
+                    echo "success";
+               } else {
+                    $actionStatus = -1;
+                    echo "denied";
+               }
+
+               $response = array('actionStatus' => $actionStatus);
+               echo json_encode($response);
+               
+               mysqli_close($conn);
+          } 
      }
 }
 
