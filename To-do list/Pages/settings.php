@@ -116,7 +116,7 @@
                     <div class="min-h-screen" id="updateProfileForm">
                          <div class="flex w-full overflow-hidden flex-wrap h-fit pb-10">
                               <div class="flex flex-wrap w-full h-full">
-                                   <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-10">
+                                   <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-5">
                                         <div class="h-[150px] bg-contain"><img draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-full w-full overflow-hidden" alt=""></div>
                                         <div class="px-5 py-2 flex flex-col gap-3 pb-6 relative">
                                              <div class="flex justify-between">
@@ -147,47 +147,67 @@
                                              </div>
                                              <label for="userDescription" class="font-semibold">About</label>
                                              <textarea name="userDescription" id="userDescription" value="dewdew" class="w-full border py-1 p-3 border-gray-300 focus:outline-none resize-none" id="userDescription"></textarea>
-                                             <div class="text-gray-700 -ml-5 sm:-ml-0 mt-2 space-y-1">
+                                             <div class="text-gray-700 -ml-5 sm:-ml-0 mt-2 space-y-3">
                                                   <div class="grid md:grid-cols-2 md:gap-6">
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="email" name="userFirstName" id="userFirstName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" />
                                                             <label for="userFirstName" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First Name</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userLastName" id="userLastName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userLastName" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Second Name</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                   </div>
                                                   <div class="grid md:grid-cols-4 md:gap-6">
                                                        <div class="relative z-0 w-full mb-6 group">
-                                                            <input autocomplete="off" type="text" name="userDOB" id="userDOB" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                                                            <label for="floating_userDOB" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date Of Birth</label>
+                                                            <input autocomplete="off" type="date" name="userDOB" id="userDOB" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                                            <label for="userDOB" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date Of Birth</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userAge" id="userAge" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userAge" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Age</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
-                                                       <div class="relative z-0 w-full mb-6 group">
-                                                            <input autocomplete="off" type="text" name="userGender" id="userGender" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                                                            <label for="userGender" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Gender</label>
+                                                       <div class="relative z-0 w-48 mb-6 group pr-5">
+                                                            <div class="relative flex bg-white">
+                                                                 <select class="border-b-2 border-x-0 border-t-0 bg-white block appearance-none w-fit border border-grey-lighter text-grey-darker py-2 px-4 pr-20" id="userGender" name="userGender">
+                                                                      <option value="" disabled selected hidden>Choose a Gender</option>
+                                                                      <option value="Male">Male</option>
+                                                                      <option value="Female">Female</option>
+                                                                 </select>
+                                                                 <div class="pr-5 pointer-events-none flex items-center px-2 text-grey-darker -translate-x-6">
+                                                                      <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                                      </svg>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userPhoneNumber" id="userPhoneNumber" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userPhoneNumber" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone Number</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
+                                                       
                                                   </div>
                                                   <div class="grid md:grid-cols-3 md:gap-6">
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userCountry" id="userCountry" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userCountry" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Country</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userState" id="userState" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userState" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userCity" id="userCity" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userCity" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
+                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                   </div>
                                                   <button id="updateprofileDetails" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
@@ -208,7 +228,7 @@
                                         <label for="email">
                                              <p class="font-medium text-slate-700 pb-2">Enter your new Password</p>
                                              <input autocomplete="off" id="newPassword" name="newPassword" type="text" class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow" placeholder="Password">
-                                             <div id="emptyPasswordWarning" class="text-red-500 text-sm opacity-0">Enter your new Passowrd</div>
+                                             <div id="emptyPasswordWarning" class="text-red-400 text-sm opacity-0">Enter your new Passowrd</div>
                                         </label>
 
                                         <button id="updatePassword" type="button" class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
@@ -225,7 +245,7 @@
 
                     <!-- Delete account starts -->
                     <div id="userdeleteAccount" class="hidden">
-                         <div class="mt-20 font-sans leading-tight min-h-screen bg-grey-lighter p-8">
+                         <div class="mt-20 font-sans leading-tight min-h-screen p-8">
                               <div class="w-1/2 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
                                    <div class="bg-cover h-40" style="background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');">
                                    </div>
@@ -270,7 +290,9 @@
 
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+     <script src="..//script///setting.js"></script>
+
 
 </body>
 
-</html>
+</html
