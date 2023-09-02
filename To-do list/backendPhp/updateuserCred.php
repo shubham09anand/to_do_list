@@ -11,8 +11,7 @@ if (!$conn) {
      if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
           $action = $_REQUEST['action'];
-          echo $action;
-
+          
           if ($action == 'updatePassword') {
 
                $userId = 41;
@@ -55,6 +54,33 @@ if (!$conn) {
                echo json_encode($response);
                
                mysqli_close($conn);
+          } 
+          else if ($action == 'updateProfile') {
+
+               echo "update section";
+
+               $userFirstName = $_REQUEST['userFirstName'];
+               echo $userFirstName;
+
+
+               // $userId = 41;
+
+               // $sqlQuery = "DELETE FROM userinfo WHERE userId = '$userId'";
+
+               // if ($sqlQuery) {
+
+               //      mysqli_query($conn, $sqlQuery);
+               //      $actionStatus = 1;
+               //      echo "success";
+               // } else {
+               //      $actionStatus = -1;
+               //      echo "denied";
+               // }
+
+               // $response = array('actionStatus' => $actionStatus);
+               // echo json_encode($response);
+               
+               // mysqli_close($conn);
           } 
      }
 }

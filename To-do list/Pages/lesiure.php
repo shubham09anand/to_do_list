@@ -27,7 +27,7 @@ if ($fetchQuery) {
 
 ?>
 
-<body class="">
+<body class="overflow-x-hidden">
      <!-- navbar starts -->
      <script>
           header()
@@ -74,13 +74,23 @@ if ($fetchQuery) {
                               $taskPriority = $data['taskPriority'];
                          ?>
 
-                              <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border border-b-4 px-5 rounded-xl place-content-center item-center">
+                              <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border border-b-4 pl-5 rounded-xl place-content-center item-center">
                                    <div>
-                                        <div id="taskTitle" class=" w-full pt-3 ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
-                                        <div id="taskDescription" class="pl-2 text-sm mb-2 w-40 sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
+                                        <div class="flex mt-2">
+                                             <div id="" class=" w-full ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                        </div>
+                                        <div class="flex space-x-5">
+                                             <div id="taskDesc" class="pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
+                                             <div class="h-5 w-5">
+                                                  <svg id="fulltaskDesc" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-4 h-4 hover:bg-gray-300">
+                                                       <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
+                                                  </svg>
+                                             </div>
+
+                                        </div>
                                    </div>
-                                   <div class="showtaskDetails hover:bg-slate-200 h-fit w-fit mt-6 rounded-md">
-                                        <svg id="selectTask" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskPriority="<?php echo $taskPriority; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 sm:w-7 h-6 sm:h-7">
+                                   <div class="showtaskDetails bg-red-500 hover:bg-red-600 w-fit bg-gray-50 rounded-r-xl px-2 border-l-4 border-white">
+                                        <svg id="selectTask" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 sm:w-7 h-6 sm:h-7 translate-y-5" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskPriority="<?php echo $taskPriority; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>">
                                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                         </svg>
                                    </div>
@@ -157,154 +167,7 @@ if ($fetchQuery) {
           document.getElementById("todoType").innerHTML = 'Lesiure';
      </script>
 
-
-     <script>
-          document.addEventListener('DOMContentLoaded', function() {
-
-               var userId, taskId, taskType, taskPriority;
-
-               var selecttaskButtons = document.querySelectorAll("#selectTask");
-
-               var taskcompleteButton = document.getElementById("taskcompleteButton");
-               var taskeditButton = document.getElementById("taskeditButton");
-               var taskdeleteButton = document.getElementById("taskdeleteButton");
-
-               var task = document.getElementById("task");
-               var slectedtaskTitle = document.getElementById("slectedtaskTitle");
-               var slectedtaskDescription = document.getElementById("slectedtaskDescription");
-               var selectedtaskList = document.getElementById("selectedtaskList");
-               var selectedtaskDate = document.getElementById("selectedtaskDate");
-               var selectedtaskStatus = document.getElementById("selectedtaskStatus");
-               var selectedtaskPriority = document.getElementById("selectedtaskPriority");
-
-               console.log(document.getElementById("selectTask").getAttribute('data-taskPriority'));
-
-               selecttaskButtons.forEach((button) => {
-                    button.addEventListener('click', function() {
-
-                         userId = button.getAttribute('data-userid');
-                         taskId = button.getAttribute('data-taskid');
-                         taskType = button.getAttribute('data-tasktype');
-                         taskTitle = button.getAttribute('data-tasktitle');
-                         taskdescription = button.getAttribute('data-taskdescription');
-                         taskPriority = button.getAttribute('data-taskPriority');
-                         datataskduedate = button.getAttribute('data-taskduedate');
-                         selectedtaskstatus = button.getAttribute('data-taskstatus');
-
-                         console.log(userId, taskId, taskType, taskPriority);
-
-                         slectedtaskTitle.value = taskTitle;
-                         slectedtaskDescription.value = taskdescription;
-                         selectedtaskList.innerHTML = taskName;
-                         selectedtaskDate.value = datataskduedate;
-                         selectedtaskStatus.innerHTML = selectedtaskstatus;
-                         // selectedtaskPriority.innerHTML = taskPriority;
-
-                         taskcompleteButton.setAttribute('data-userid', userId);
-                         taskcompleteButton.setAttribute('data-taskid', taskId);
-                         taskcompleteButton.setAttribute('data-tasktype', taskType);
-
-                         taskeditButton.setAttribute('data-userid', userId);
-                         taskeditButton.setAttribute('data-taskid', taskId);
-                         taskeditButton.setAttribute('data-tasktype', taskType);
-
-                         taskdeleteButton.setAttribute('data-userid', userId);
-                         taskdeleteButton.setAttribute('data-taskid', taskId);
-                         taskdeleteButton.setAttribute('data-tasktype', taskType);
-
-                    });
-               });
-
-               taskcompleteButton.addEventListener('click', () => {
-                    // console.log(taskcompleteButton.getAttribute('data-userid'), taskcompleteButton.getAttribute('data-taskid'), taskcompleteButton.getAttribute('data-tasktype'));
-
-                    const action = "Complete";
-                    var comuserId = taskcompleteButton.getAttribute('data-userid');
-                    var comtaskkId = taskcompleteButton.getAttribute('data-taskid');
-                    var comtaskType = taskcompleteButton.getAttribute('data-tasktype');
-
-                    var connection = new XMLHttpRequest();
-                    connection.onreadystatechange = function() {
-                         if (connection.readyState == 4 && connection.status == 200) {
-                              var response = JSON.parse(connection.responseText);
-                              console.log(response);
-                         }
-                    }
-
-                    var data = "comuserId=" + encodeURIComponent(comuserId) +
-                         "&comtaskkId=" + encodeURIComponent(comtaskkId) +
-                         "&comtaskType=" + encodeURIComponent(comtaskType) +
-                         "&action=" + encodeURIComponent(action);
-
-                    connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
-                    connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    connection.send(data);
-               });
-
-
-               taskeditButton.addEventListener('click', () => {
-                    // console.log(taskeditButton.getAttribute('data-userid'), taskeditButton.getAttribute('data-taskid'), taskeditButton.getAttribute('data-tasktype'));
-
-                    const action = "Edit";
-                    var edituserId = taskeditButton.getAttribute('data-userid');
-                    var edittaskkId = taskeditButton.getAttribute('data-taskid');
-                    var edittaskType = taskeditButton.getAttribute('data-tasktype');
-
-                    var newtaskTitle = document.getElementById("slectedtaskTitle").value;
-                    var newtaskDescription = document.getElementById("slectedtaskDescription").value;
-                    var newtadkDueDate = document.getElementById("selectedtaskDate").value;
-
-                    var connection = new XMLHttpRequest();
-                    connection.onreadystatechange = function() {
-                         if (connection.readyState == 4 && connection.status == 200) {
-                              var response = JSON.parse(connection.responseText);
-                              console.log(response);
-                         }
-                    }
-
-                    var data = "edituserId=" + encodeURIComponent(edituserId) +
-                         "&edittaskkId=" + encodeURIComponent(edittaskkId) +
-                         "&edittaskType=" + encodeURIComponent(edittaskType) +
-                         "&newtaskTitle=" + encodeURIComponent(newtaskTitle) +
-                         "&newtaskDescription=" + encodeURIComponent(newtaskDescription) +
-                         "&newtadkDueDate=" + encodeURIComponent(newtadkDueDate) +
-                         "&action=" + encodeURIComponent(action);
-
-                    connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
-                    connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    connection.send(data);
-
-               });
-
-               taskdeleteButton.addEventListener('click', () => {
-                    // console.log( "del" +taskdeleteButton.getAttribute('data-userid'), taskdeleteButton.getAttribute('data-taskid'), taskdeleteButton.getAttribute('data-tasktype'));
-
-                    const action = "Delete";
-                    var deluserId = taskdeleteButton.getAttribute('data-userid');
-                    var deltaskkId = taskdeleteButton.getAttribute('data-taskid');
-                    var deltaskType = taskdeleteButton.getAttribute('data-tasktype');
-
-                    var connection = new XMLHttpRequest();
-                    connection.onreadystatechange = function() {
-                         if (connection.readyState == 4 && connection.status == 200) {
-                              var response = JSON.parse(connection.responseText);
-                              console.log(response);
-                         }
-                    }
-
-                    var data = "deluserId=" + encodeURIComponent(deluserId) +
-                         "&deltaskkId=" + encodeURIComponent(deltaskkId) +
-                         "&deltaskType=" + encodeURIComponent(deltaskType) +
-                         "&action=" + encodeURIComponent(action);
-
-                    connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
-                    connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    connection.send(data);
-               });
-
-
-          });
-     </script>
+     <script src="..//script/taskOperations.js"></script>
 
      <script>
           $(document).ready(function() {
