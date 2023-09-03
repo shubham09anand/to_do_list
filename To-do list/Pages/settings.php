@@ -53,18 +53,18 @@
 
                     <!-- Profile starts -->
                     <div id="userprofile" class="hidden w-full overflow-hidden h-fit pb-20" id="profile">
-                         <div class="flex flex-wrap w-full h-full">
-                              <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-10">
-                                   <div class="h-[200px] bg-contain"><img draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-full w-full overflow-hidden" alt=""></div>
+                         <div class="flex flex-wrap w-full h-full pb-40">
+                              <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-5 pb-16">
+                                   <div class="h-[200px] bg-contain"><img draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[210px] w-full overflow-hidden" alt=""></div>
                                    <div class="px-5 py-2 flex flex-col gap-3 pb-6">
                                         <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-14 border-white'>
                                              <img draggable="false" src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60' class='w-full h-full rounded-full object-center object-cover' alt="">
                                         </div>
-                                        <div class="mt-5">
+                                        <div class="mt-2">
                                              <h3 class="text-xl text-slate-900 relative font-bold leading-6">$user_data['user_name'] </h3>
                                              <p class="text-sm text-gray-600"> $user_data['user_email'] </p>
                                         </div>
-                                        <h4 class="text-md font-medium leading-3">About</h4>
+                                        <h4 class="text-md font-medium leading-3 mt-4">About</h4>
                                         <p class="text-sm text-stone-500 text-justify"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda est vel quis voluptatum dolores natus? Officiis provident veniam sed nulla nesciunt, incidunt enim? </p>
                                         <div class="text-gray-700 -ml-5 sm:-ml-0">
                                              <div class="grid md:grid-cols-2 text-sm gap-3">
@@ -116,64 +116,71 @@
                     <div class="min-h-screen" id="updateProfileForm">
                          <div class="flex w-full overflow-hidden flex-wrap h-fit pb-10">
                               <div class="flex flex-wrap w-full h-full">
-                                   <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-5">
-                                        <div class="h-[150px] bg-contain"><img draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-full w-full overflow-hidden" alt=""></div>
+                                   <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-2">
+                                        <div class="h-[150px] bg-cover"><img id="backgroundImage" draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[180px] w-full overflow-hidden" alt=""></div>
                                         <div class="px-5 py-2 flex flex-col gap-3 pb-6 relative">
                                              <div class="flex justify-between">
-                                                  <div class="flex">
-                                                       <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-14 border-white flex'>
+                                                  <div class="flex ">
+                                                       <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-10 border-white flex'>
                                                             <div>
-                                                                 <img draggable="false" src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60' class='w-full h-full rounded-full object-center object-cover' alt="">
+                                                                 <img id="profileImage" draggable="false" src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60' class='w-full h-full rounded-full object-center object-cover' alt="">
                                                             </div>
                                                        </div>
-                                                       <div class="w-8 h-8 scale-105 rounded-full bg-black absolute">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mt-1 mx-auto" fill="white" class="bi bi-camera" viewBox="0 0 16 16">
-                                                                 <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
-                                                                 <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-                                                            </svg>
+                                                       <div class="w-11 h-11 scale-105 hover:bg-gray-800 rounded-full bg-black absolute mt-5">
+                                                            <div class="relative w-11 overflow-hidden h-11 rounded-3xl cursor-pointer">
+                                                                 <input id="uploadprofilephotobutton" type="file" autocomplete="off" class="bg-transparent border-0 opacity-0 scale-y-150 cursor-pointer top-3 absolute">
+                                                                 <svg id="profileSvg" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mt-1.5 ml-1.5 mx-auto" fill="white" class="bi bi-camera" viewBox="0 0 16 16">
+                                                                      <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
+                                                                      <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                                                                 </svg>
+                                                            </div>
                                                        </div>
                                                   </div>
-                                                  <div class="w-16 h-16 rounded-full p-3 bg-black -mt-10">
+                                                  <div class="w-16 h-16 cursor-pointer hover:bg-gray-800 rounded-full p-3 bg-black -mt-5 relative">
+                                                  <input id="uploadnewbackgroundPhotoButton" type="file" autocomplete="off" class="bg-transparent border-0 opacity-0 scale-y-[250%] cursor-pointer top-5 left-1 absolute">
                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="white" class="bi bi-camera" viewBox="0 0 16 16">
                                                             <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
                                                             <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
                                                        </svg>
                                                   </div>
                                              </div>
-                                             <div class="mt-">
+                                             <div class="mt-5">
                                                   <h3 class="text-xl text-slate-900 relative font-bold leading-6">
                                                        $user_data['user_name'] </h3>
                                                   <p class="text-sm text-gray-600"> $user_data['user_email'] </p>
                                              </div>
-                                             <label for="userDescription" class="font-semibold">About</label>
-                                             <textarea name="userDescription" id="userDescription" value="dewdew" class="w-full border py-1 p-3 border-gray-300 focus:outline-none resize-none" id="userDescription"></textarea>
+                                             <div class="relative">
+                                                  <label for="userDescription" class="font-semibold">About</label>
+                                                  <textarea autocomplete="off" name="userDescription" id="userDescription" value="dewdew" class="border-b w-full h-10 text-base p-3 border-gray-300 focus:outline-none shadow-sm focus:shadow-lg resize-none" id="userDescription"></textarea>
+                                                  <div id="descriptionWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
+                                             </div>
                                              <div class="text-gray-700 -ml-5 sm:-ml-0 mt-2 space-y-3">
                                                   <div class="grid md:grid-cols-2 md:gap-6">
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="email" name="userFirstName" id="userFirstName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" />
                                                             <label for="userFirstName" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First Name</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="firstnameWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userLastName" id="userLastName" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userLastName" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Second Name</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="lastnameWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                   </div>
                                                   <div class="grid md:grid-cols-4 md:gap-6">
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="date" name="userDOB" id="userDOB" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userDOB" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date Of Birth</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="DOBWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userAge" id="userAge" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userAge" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Age</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="ageWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-48 mb-6 group pr-5">
                                                             <div class="relative flex bg-white">
-                                                                 <select class="border-b-2 border-x-0 border-t-0 bg-white block appearance-none w-fit border border-grey-lighter text-grey-darker py-2 px-4 pr-20" id="userGender" name="userGender">
+                                                                 <select autocomplete="off" class="border-b-2 border-x-0 border-t-0 bg-white block appearance-none w-fit border border-grey-lighter text-grey-darker py-2 px-4 pr-20" id="userGender" name="userGender">
                                                                       <option value="" disabled selected hidden>Choose a Gender</option>
                                                                       <option value="Male">Male</option>
                                                                       <option value="Female">Female</option>
@@ -184,30 +191,28 @@
                                                                       </svg>
                                                                  </div>
                                                             </div>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="genderWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userPhoneNumber" id="userPhoneNumber" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userPhoneNumber" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone Number</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
-                                                       
                                                   </div>
                                                   <div class="grid md:grid-cols-3 md:gap-6">
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userCountry" id="userCountry" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userCountry" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Country</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="countryWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userState" id="userState" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userState" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="stateWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                        <div class="relative z-0 w-full mb-6 group">
                                                             <input autocomplete="off" type="text" name="userCity" id="userCity" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                                                             <label for="userCity" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">City</label>
-                                                            <div class="absolute text-red-400 text-[10px]">Fill this area</div>
+                                                            <div id="cityWarning" class="opacity-0 absolute text-red-400 text-[10px]">Fill this area</div>
                                                        </div>
                                                   </div>
                                                   <button id="updateprofileDetails" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
@@ -246,7 +251,7 @@
                     <!-- Delete account starts -->
                     <div id="userdeleteAccount" class="hidden">
                          <div class="mt-20 font-sans leading-tight min-h-screen p-8">
-                              <div class="w-1/2 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+                              <div class="w-3/4 lg:w-1/2 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
                                    <div class="bg-cover h-40" style="background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');">
                                    </div>
                                    <div class="border-b px-4 pb-6">
