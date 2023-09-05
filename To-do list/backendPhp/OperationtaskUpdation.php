@@ -42,10 +42,8 @@ if (!$conn) {
                if ($sqlQuery) {
                     mysqli_query($conn, $sqlQuery);
                     $actionStatus = 1;
-                    echo "success";
                } else {
                     $actionStatus = -1;
-                    echo "denied";
                }
                $response = array('actionStatus' => $actionStatus);
                echo json_encode($response);
@@ -61,7 +59,7 @@ if (!$conn) {
                $newtadkDueDate = $_REQUEST['newtadkDueDate'];
 
                if (strlen($newtaskTitle) == 0 || strlen($newtaskDescription) == 0 || strlen($newtadkDueDate) == 0) {
-                    echo "failed";
+                    $actionStatus = 1;
                } else {
                     $sqlQuery = "UPDATE tasktable SET taskTitle='$newtaskTitle',taskDescription='$newtaskDescription',taskdueDate='$newtadkDueDate' WHERE taskId='$edittaskkId' and userId='$edituserId' and taskType='$edittaskType'";
 

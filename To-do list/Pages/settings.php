@@ -117,7 +117,7 @@
                          <div class="flex w-full overflow-hidden flex-wrap h-fit pb-10">
                               <div class="flex flex-wrap w-full h-full">
                                    <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-2">
-                                        <div class="h-[150px] bg-cover"><img id="backgroundImage" draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[180px] w-full overflow-hidden" alt=""></div>
+                                        <div class="h-[150px] bg-cover"><img id="backgroundImage" draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[220px] w-full overflow-hidden" alt=""></div>
                                         <div class="px-5 py-2 flex flex-col gap-3 pb-6 relative">
                                              <div class="flex justify-between">
                                                   <div class="flex ">

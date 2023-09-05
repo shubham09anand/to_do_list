@@ -102,7 +102,8 @@ if ($fetchQuery) {
           </div>
           <!-- main ends -->
 
-          <div id="task" class="hidden w-full sm:w-2/5 min-h-fit shadow-xl p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
+          <div id="task" class="relative w-full sm:w-2/5 min-h-fit shadow-xl p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
+               <div id="taskOperationMessageBox" class="hidden flex place-content-center item-center"><div id="taskOperationMessage" class="bg-blue-300 rounded-md py-2 px-4 absolute top-[95%]">Your task Has been updated</div></div>
                <div class="uppercase text-3xl font-semibold flex justify-between">
                     <div>Task</div>
                     <div>
@@ -144,7 +145,6 @@ if ($fetchQuery) {
                     </div>
                <?php } ?>
           </div>
-
      </div>
 
      <script src="..//script/taskInsert.js"></script>

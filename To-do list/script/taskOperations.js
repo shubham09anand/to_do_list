@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("selectTask").getAttribute("data-taskPriority")
   );
 
+  const taskOperationMessageBox = document.getElementById("taskOperationMessageBox");
+  const taskOperationMessage = document.getElementById("taskOperationMessage");
+
   selecttaskButtons.forEach((button) => {
     button.addEventListener("click", function () {
       userId = button.getAttribute("data-userid");
@@ -75,25 +78,24 @@ document.addEventListener("DOMContentLoaded", function () {
     connection.onreadystatechange = function () {
       if (connection.readyState == 4 && connection.status == 200) {
         var response = JSON.parse(connection.responseText);
-        console.log(response);
+        var actionStatus = response.actionStatus;
+        if (actionStatus == 1) {
+          taskOperationMessageBox.classList = "flex place-content-center item-center";
+          setTimeout(()=>{
+            taskOperationMessageBox.classList = "hidden flex place-content-center item-center";
+          },2000)
+        }
       }
     };
 
     var data =
-      "comuserId=" +
-      encodeURIComponent(comuserId) +
-      "&comtaskkId=" +
-      encodeURIComponent(comtaskkId) +
-      "&comtaskType=" +
-      encodeURIComponent(comtaskType) +
-      "&action=" +
-      encodeURIComponent(action);
+      "comuserId=" + encodeURIComponent(comuserId) +
+      "&comtaskkId=" + encodeURIComponent(comtaskkId) +
+      "&comtaskType=" + encodeURIComponent(comtaskType) +
+      "&action=" + encodeURIComponent(action);
 
     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
-    connection.setRequestHeader(
-      "Content-type",
-      "application/x-www-form-urlencoded"
-    );
+    connection.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     connection.send(data);
   });
 
@@ -106,40 +108,35 @@ document.addEventListener("DOMContentLoaded", function () {
     var edittaskType = taskeditButton.getAttribute("data-tasktype");
 
     var newtaskTitle = document.getElementById("slectedtaskTitle").value;
-    var newtaskDescription = document.getElementById(
-      "slectedtaskDescription"
-    ).value;
+    var newtaskDescription = document.getElementById("slectedtaskDescription").value;
     var newtadkDueDate = document.getElementById("selectedtaskDate").value;
 
     var connection = new XMLHttpRequest();
     connection.onreadystatechange = function () {
       if (connection.readyState == 4 && connection.status == 200) {
         var response = JSON.parse(connection.responseText);
-        console.log(response);
+        var actionStatus = response.actionStatus;
+        if (actionStatus == 1) {
+          taskOperationMessageBox.classList = "flex place-content-center item-center";
+          setTimeout(()=>{
+            taskOperationMessageBox.classList = "hidden flex place-content-center item-center";
+            taskOperationMessage.innerHTML = "Your task has been succesfully Updated"
+          },2000)
+        }
       }
     };
 
     var data =
-      "edituserId=" +
-      encodeURIComponent(edituserId) +
-      "&edittaskkId=" +
-      encodeURIComponent(edittaskkId) +
-      "&edittaskType=" +
-      encodeURIComponent(edittaskType) +
-      "&newtaskTitle=" +
-      encodeURIComponent(newtaskTitle) +
-      "&newtaskDescription=" +
-      encodeURIComponent(newtaskDescription) +
-      "&newtadkDueDate=" +
-      encodeURIComponent(newtadkDueDate) +
-      "&action=" +
-      encodeURIComponent(action);
+      "edituserId=" + encodeURIComponent(edituserId) +
+      "&edittaskkId=" + encodeURIComponent(edittaskkId) +
+      "&edittaskType=" + encodeURIComponent(edittaskType) +
+      "&newtaskTitle=" + encodeURIComponent(newtaskTitle) +
+      "&newtaskDescription=" + encodeURIComponent(newtaskDescription) +
+      "&newtadkDueDate=" + encodeURIComponent(newtadkDueDate) +
+      "&action=" + encodeURIComponent(action);
 
     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
-    connection.setRequestHeader(
-      "Content-type",
-      "application/x-www-form-urlencoded"
-    );
+    connection.setRequestHeader( "Content-type", "application/x-www-form-urlencoded");
     connection.send(data);
   });
 
@@ -155,19 +152,22 @@ document.addEventListener("DOMContentLoaded", function () {
     connection.onreadystatechange = function () {
       if (connection.readyState == 4 && connection.status == 200) {
         var response = JSON.parse(connection.responseText);
-        console.log(response);
+        var actionStatus = response.actionStatus;
+        if (actionStatus == 1) {
+          taskOperationMessageBox.classList = "flex place-content-center item-center";
+          setTimeout(()=>{
+            taskOperationMessageBox.classList = "hidden flex place-content-center item-center";
+            taskOperationMessage.innerHTML = "Your task has been succesfully Updated"
+          },2000)
+        }
       }
     };
 
     var data =
-      "deluserId=" +
-      encodeURIComponent(deluserId) +
-      "&deltaskkId=" +
-      encodeURIComponent(deltaskkId) +
-      "&deltaskType=" +
-      encodeURIComponent(deltaskType) +
-      "&action=" +
-      encodeURIComponent(action);
+      "deluserId=" + encodeURIComponent(deluserId) +
+      "&deltaskkId=" + encodeURIComponent(deltaskkId) +
+      "&deltaskType=" + encodeURIComponent(deltaskType) +
+      "&action=" + encodeURIComponent(action);
 
     connection.open("POST", "../backendPhp/OperationtaskUpdation.php", true);
     connection.setRequestHeader(

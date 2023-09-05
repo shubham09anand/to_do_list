@@ -149,25 +149,22 @@ updatePassword.addEventListener("click", () => {
         var response = JSON.parse(connection.responseText);
         var actionStatus = response.actionStatus;
         if (actionStatus == 1) {
-          console.log("abc");
-          console.log(actionStatus);
-          newPassword.value == "";
-          document.getElementById("messageBox").style.display = "block";
+          document.getElementById("messageBox").className = " flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm";
           document.getElementById("message").innerHTML = "Your Password Has Been Succesfully Updated Updated";
+          setTimeout(()=>{
+            newPassword.value = "";
+            document.getElementById("messageBox").className = "hidden flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm";
+          },2000)
         }
       }
     };
 
     var data =
-      "newPassword=" +
-      encodeURIComponent(newPassword.value) +
-      "&action=" +
-      encodeURIComponent(action);
+      "newPassword=" +encodeURIComponent(newPassword.value) +
+      "&action=" +encodeURIComponent(action);
     connection.open("POST", "../backendPhp/updateuserCred.php", true);
     connection.setRequestHeader(
-      "Content-type",
-      "application/x-www-form-urlencoded"
-    );
+      "Content-type", "application/x-www-form-urlencoded");
     connection.send(data);
   }
 });
@@ -177,30 +174,32 @@ deleteButton.addEventListener("click", () => {
   var connection = new XMLHttpRequest();
   connection.onreadystatechange = function () {
     if (connection.readyState == 4 && connection.status == 200) {
-      console.log(connection.responseText);
       var response = JSON.parse(connection.responseText);
-      console.log(response);
+      var actionStatus = response.actionStatus;
+      if (actionStatus == 1) {
+        document.getElementById("messageBox").className = " flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm";
+        document.getElementById("message").innerHTML = "Your Account Has been Sucessfully Deleted";
+        setTimeout(()=>{
+          newPassword.value = "";
+          document.getElementById("messageBox").className = "hidden flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm";
+        },2000)
+      }
+      
     }
   };
 
   var data =
-    "newPassword=" +
-    encodeURIComponent(newPassword.value) +
-    "&action=" +
-    encodeURIComponent(action);
+    "newPassword=" +encodeURIComponent(newPassword.value) +
+    "&action=" +encodeURIComponent(action);
   connection.open("POST", "../backendPhp/updateuserCred.php", true);
   connection.setRequestHeader(
-    "Content-type",
-    "application/x-www-form-urlencoded"
-  );
+    "Content-type","application/x-www-form-urlencoded");
   connection.send(data);
 });
 
 //updateing new image
 // profile photo
-const uploadprofilephotobutton = document.getElementById(
-  "uploadprofilephotobutton"
-);
+const uploadprofilephotobutton = document.getElementById("uploadprofilephotobutton");
 const profileImage = document.getElementById("profileImage");
 
 uploadprofilephotobutton.addEventListener("change", () => {
@@ -217,9 +216,7 @@ uploadprofilephotobutton.addEventListener("change", () => {
 
 // background photo
 
-const uploadnewbackgroundPhotoButton = document.getElementById(
-  "uploadnewbackgroundPhotoButton"
-);
+const uploadnewbackgroundPhotoButton = document.getElementById("uploadnewbackgroundPhotoButton");
 const backgroundImage = document.getElementById("backgroundImage");
 
 uploadnewbackgroundPhotoButton.addEventListener("change", () => {
