@@ -149,11 +149,11 @@ updatePassword.addEventListener("click", () => {
         var response = JSON.parse(connection.responseText);
         var actionStatus = response.actionStatus;
         if (actionStatus == 1) {
+          console.log("abc");
           console.log(actionStatus);
           newPassword.value == "";
-          document.getElementById("messageBox").style = block;
-          document.getElementById("message").innerHTML =
-            "Your Password Has Been Succesfully Updated Updated";
+          document.getElementById("messageBox").style.display = "block";
+          document.getElementById("message").innerHTML = "Your Password Has Been Succesfully Updated Updated";
         }
       }
     };
@@ -177,6 +177,7 @@ deleteButton.addEventListener("click", () => {
   var connection = new XMLHttpRequest();
   connection.onreadystatechange = function () {
     if (connection.readyState == 4 && connection.status == 200) {
+      console.log(connection.responseText);
       var response = JSON.parse(connection.responseText);
       console.log(response);
     }
@@ -196,39 +197,39 @@ deleteButton.addEventListener("click", () => {
 });
 
 //updateing new image
-     // profile photo
-     const uploadprofilephotobutton = document.getElementById("uploadprofilephotobutton");
-     const profileImage = document.getElementById("profileImage");
+// profile photo
+const uploadprofilephotobutton = document.getElementById(
+  "uploadprofilephotobutton"
+);
+const profileImage = document.getElementById("profileImage");
 
-     uploadprofilephotobutton.addEventListener("change", () => {
-     const image = uploadprofilephotobutton.files[0];
-     const reader = new FileReader();
+uploadprofilephotobutton.addEventListener("change", () => {
+  const image = uploadprofilephotobutton.files[0];
+  const reader = new FileReader();
 
-     reader.onload = () => {
-     const imgUrl = reader.result;
-          profileImage.src = imgUrl;  
-          };
-     
-     reader.readAsDataURL(image);
-     
-     });
+  reader.onload = () => {
+    const imgUrl = reader.result;
+    profileImage.src = imgUrl;
+  };
 
-     // background photo
+  reader.readAsDataURL(image);
+});
 
-     const uploadnewbackgroundPhotoButton = document.getElementById("uploadnewbackgroundPhotoButton");
-     const backgroundImage = document.getElementById("backgroundImage");
+// background photo
 
-     uploadnewbackgroundPhotoButton.addEventListener("change", () => {
-     const image = uploadnewbackgroundPhotoButton.files[0];
-     const reader = new FileReader();
+const uploadnewbackgroundPhotoButton = document.getElementById(
+  "uploadnewbackgroundPhotoButton"
+);
+const backgroundImage = document.getElementById("backgroundImage");
 
-     reader.onload = () => {
-     const imgUrl = reader.result;
-          backgroundImage.src = imgUrl;  
-          };
-     
-     reader.readAsDataURL(image);
-     
-     });
+uploadnewbackgroundPhotoButton.addEventListener("change", () => {
+  const image = uploadnewbackgroundPhotoButton.files[0];
+  const reader = new FileReader();
 
+  reader.onload = () => {
+    const imgUrl = reader.result;
+    backgroundImage.src = imgUrl;
+  };
 
+  reader.readAsDataURL(image);
+});

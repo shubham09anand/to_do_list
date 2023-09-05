@@ -24,10 +24,8 @@ if (!$conn) {
 
                     mysqli_query($conn, $sqlQuery);
                     $actionStatus = 1;
-                    echo "success";
                } else {
                     $actionStatus = -1;
-                    echo "denied";
                }
 
                $response = array('actionStatus' => $actionStatus);
@@ -70,10 +68,8 @@ if (!$conn) {
                     if ($sqlQuery) {
                          mysqli_query($conn, $sqlQuery);
                          $actionStatus = 1;
-                         echo "success";
                     } else {
                          $actionStatus = -1;
-                         echo "denied";
                     }
                }
                $response = array('actionStatus' => $actionStatus);

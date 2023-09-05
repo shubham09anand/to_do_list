@@ -1,6 +1,4 @@
-<?php $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list'); ?>
-
-<?php
+<?php $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list'); ?><?php
 
 $actionStatus = 0;
 
@@ -23,10 +21,8 @@ if (!$conn) {
 
                     mysqli_query($conn, $sqlQuery);
                     $actionStatus = 1;
-                    echo "success";
                } else {
                     $actionStatus = -1;
-                    echo "denied";
                }
 
                $response = array('actionStatus' => $actionStatus);
@@ -44,10 +40,8 @@ if (!$conn) {
 
                     mysqli_query($conn, $sqlQuery);
                     $actionStatus = 1;
-                    echo "success";
                } else {
                     $actionStatus = -1;
-                    echo "denied";
                }
 
                $response = array('actionStatus' => $actionStatus);
