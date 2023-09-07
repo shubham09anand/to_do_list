@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var taskDesc = document.getElementById("taskDesc");
-  var fulltaskDesc = document.getElementById("fulltaskDesc");
 
-  fulltaskDesc.addEventListener("click", () => {
-    taskDesc.className = "h-fit";
-    fulltaskDesc.classList = "rotate-180";
-  });
+  var fulltaskDesc = document.querySelectorAll(".fulltaskDesc");
+  var taskDesc = document.querySelectorAll(".taskDesc");
+
+  fulltaskDesc.forEach((item , index)=>{
+   
+  })
 
   var userId, taskId, taskType, taskPriority;
 
@@ -41,15 +41,15 @@ document.addEventListener("DOMContentLoaded", function () {
       taskdescription = button.getAttribute("data-taskdescription");
       taskPriority = button.getAttribute("data-taskPriority");
       datataskduedate = button.getAttribute("data-taskduedate");
-      selectedtaskstatus = button.getAttribute("data-taskstatus");
+      selectedtaskStatus = button.getAttribute("data-taskstatus");
 
-      console.log(userId, taskId, taskType, taskPriority);
+      console.log(userId, taskId, taskType, taskPriority , selectedtaskStatus);
 
       slectedtaskTitle.value = taskTitle;
       slectedtaskDescription.value = taskdescription;
-      selectedtaskList.innerHTML = taskName;
+      selectedtaskList.innerHTML = taskType;
       selectedtaskDate.value = datataskduedate;
-      selectedtaskStatus.innerHTML = selectedtaskstatus;
+      selectedtaskStatus.innerHTML = selectedtaskStatus;
       // selectedtaskPriority.innerHTML = taskPriority;
 
       taskcompleteButton.setAttribute("data-userid", userId);

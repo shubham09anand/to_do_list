@@ -75,22 +75,23 @@ if ($fetchQuery) {
                          ?>
 
                               <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border border-b-4 pl-5 rounded-xl place-content-center item-center">
-                                   <div>
-                                        <div class="flex mt-2">
-                                             <div id="" class=" w-full ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                   <div class="w-full pr-10">
+                                        <div class="flex mt-2 justify-between w-full">
+                                             <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                             <div class="ml-2 text-xs text-gray-900 dark:text-gray-300"><?php echo $data['taskStatus'] ?></div>
                                         </div>
                                         <div class="flex space-x-5">
-                                             <div id="taskDesc" class="pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
+                                             <div class="taskDesc pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
                                              <div class="h-5 w-5">
-                                                  <svg id="fulltaskDesc" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-4 h-4 hover:bg-gray-300">
+                                                  <svg id="fulltaskDesc" class="fulltaskDesc w-4 h-4 hover:bg-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black">
                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
                                                   </svg>
                                              </div>
 
                                         </div>
                                    </div>
-                                   <div class="showtaskDetails bg-red-500 hover:bg-red-600 w-fit bg-gray-50 rounded-r-xl px-2 border-l-4 border-white">
-                                        <svg id="selectTask" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 sm:w-7 h-6 sm:h-7 translate-y-5" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskPriority="<?php echo $taskPriority; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>">
+                                   <div id="selectTask" class="showtaskDetails bg-red-500 hover:bg-red-600 w-fit bg-gray-50 rounded-r-xl px-2 border-l-4 border-white" data-userid="<?php echo $userId; ?>" data-taskid="<?php echo $taskId; ?>" data-tasktype="<?php echo $taskType; ?>" data-tasktitle="<?php echo $taskTitle; ?>" data-taskdescription="<?php echo $taskDescription; ?>" data-taskPriority="<?php echo $taskPriority; ?>" data-taskduedate="<?php echo $taskdueDate; ?>" data-taskstatus="<?php echo $taskStatus; ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 sm:w-7 h-6 sm:h-7 translate-y-5">
                                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                         </svg>
                                    </div>

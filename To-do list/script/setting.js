@@ -170,6 +170,7 @@ updatePassword.addEventListener("click", () => {
 });
 
 deleteButton.addEventListener("click", () => {
+  var feedbackRequest = document.getElementById("feedbackRequest");
   const action = "deleteAccount";
   var connection = new XMLHttpRequest();
   connection.onreadystatechange = function () {
@@ -179,10 +180,10 @@ deleteButton.addEventListener("click", () => {
       if (actionStatus == 1) {
         document.getElementById("messageBox").className = " flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm";
         document.getElementById("message").innerHTML = "Your Account Has been Sucessfully Deleted";
+        feedbackRequest.style.display = "block";
         setTimeout(()=>{
-          newPassword.value = "";
           document.getElementById("messageBox").className = "hidden flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm";
-        },2000)
+        },100000)
       }
       
     }

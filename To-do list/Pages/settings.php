@@ -137,7 +137,7 @@
                                                        </div>
                                                   </div>
                                                   <div class="w-16 h-16 cursor-pointer hover:bg-gray-800 rounded-full p-3 bg-black -mt-5 relative">
-                                                  <input id="uploadnewbackgroundPhotoButton" type="file" autocomplete="off" class="bg-transparent border-0 opacity-0 scale-y-[250%] cursor-pointer top-5 left-1 absolute">
+                                                       <input id="uploadnewbackgroundPhotoButton" type="file" autocomplete="off" class="bg-transparent border-0 opacity-0 scale-y-[250%] cursor-pointer top-5 left-1 absolute">
                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="white" class="bi bi-camera" viewBox="0 0 16 16">
                                                             <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
                                                             <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
@@ -275,7 +275,19 @@
 
           <div id="messageBox" class="hidden flex w-screen h-screen place-content-center items-center absolute z-20 top-1 backdrop-blur-sm">
                <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-                    <span id="message" class="font-medium">Your Password Has Been Succesfully Updated</span>
+                    <span id="message" class="font-medium text-2xl ">Your Password Has Been Succesfully Updated <br></span>
+                    <div class="text-center hidden" id="feedbackRequest">
+                         <div><br> Please drop a feedback for us before u go.....</div>
+                         <div class="flex place-content-center items-center w-full space-x-2">
+                              <a href="./feedback.html" class="font-semibold text-md tracking-wide text-black text-xl">Feedback</a><br>
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-5 h-5">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                              </svg>
+                         </div>
+                         <div class="underline w-full place-content-center items-center flex pr-5">
+                              <a href="../index.html">No thanks</a>
+                         </div>
+                    </div>
                </div>
           </div>
      </div>
