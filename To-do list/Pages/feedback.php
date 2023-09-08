@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-     
-     <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <script src="https://cdn.tailwindcss.com"></script>
-          <script src="../script/components.js"></script>
-          <script src="../Assets/jquery-3.7.0.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js" integrity="sha512-eYPrm8TgYWg3aa6tvSRZjN4v0Z9Qx69q3RhfSj+Mf89QqwOMqmwSlsVqfp4N8NVAcZe/YeUhh9x/nM2CAOp6cA==" crossorigin="anonymous"></script>
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script src="../script/components.js"></script>
+     <script src="../Assets/jquery-3.7.0.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js" integrity="sha512-eYPrm8TgYWg3aa6tvSRZjN4v0Z9Qx69q3RhfSj+Mf89QqwOMqmwSlsVqfp4N8NVAcZe/YeUhh9x/nM2CAOp6cA==" crossorigin="anonymous"></script>
      <title>Document</title>
 </head>
 
 <body>
      <!-- component -->
      <section>
-          <div class="bg-black text-white py-20">
-               <div class="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
+          <div class="bg-black text-white py-5">
+               <div class="container mx-auto flex flex-col md:flex-row my-6">
                     <div class="flex flex-col w-full lg:w-1/3 p-8">
                          <p class="text-yellow-300 text-lg uppercase tracking-loose">REVIEW</p>
                          <p class="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Leave us a feedback!</p>
@@ -82,7 +82,11 @@
                </div>
           </div>
      </section>
-     
+
+     <div id="feedbackMessage" class="hidden h-screen w-screen backdrop-blur-2xl absolute top-0">
+          <div class="uppercase text-5xl font-semibold text-gray-500 text-center pt-40">Thank You For Your Valuable <span class="font-bold text-8xl"><br>Feedback</span>.</div>
+     </div>
+
      <script src="..//script/feedback.js"></script>
 
 </body>

@@ -42,28 +42,27 @@ feedbackBtn.addEventListener('click' , ()=>{
      }
      else {
          
-          var userplatformDes = platform.description;
-         
-          fetch("https://api.ipify.org?format=json")
-            .then((res) => res.json())
-            .then((data) => {
-              var userIp = data.ip;
-              var connection = new XMLHttpRequest();
-              connection.onreadystatechange = function () {
-                if (connection.readyState == 4 && connection.status == 200) {
-                    var response = connection.responseText;
-                    console.log(response);
-                }
-              };
-      
-              connection.open("POST", "..//backendPhp//feedback.php", true);
+          var connection = new XMLHttpRequest();
+          connection.onreadystatechange = function () {
+               if (connection.readyState == 4 && connection.status == 200) {
+                    var response = JSON.parse(connection.responseText);
+                    var feedbackMessage = document.getElementById("feedbackMessage");
+                    if(response.insertionStatus){
+                         feedbackMessage.style.display = "block";
 
-              connection.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-              var data = "email=" + (email) + "&feedback=" + (feedback) + "&navigate=" + (navigate) + "&ui=" + (ui) + "&userIp=" + (userIp) + "&userplatformDes=" + (userplatformDes);
+                         setTimeout(() => {
+                              location.href = "..//index.html"
+                         }, 3000);
+                    }
+               }
+          };
+     
+          connection.open("POST", "..//backendPhp//Operationfeedback.php", true);
 
-              connection.send(data);
+          connection.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+          var data = "email=" + (email) + "&feedback=" + (feedback) + "&navigate=" + (navigate) + "&ui=" + (ui) ;
+          connection.send(data);
     
-            }).catch((err) => console.log(err));
         }
 })
 
