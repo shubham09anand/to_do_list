@@ -41,7 +41,7 @@ if ($fetchQuery) {
           </script>
           <!-- navbar ends -->
 
-          <div id="container" class="w-full lg:w-full mx-auto min-h-screen max-h-fit bg-gray-200 mt-5 rounded-lg overflow-y-scroll">
+          <div id="container" class="w-full lg:w-full mx-auto min-h-screen max-h-fit mt-5 rounded-lg overflow-y-scroll">
                <div class="text-5xl font-semibold mb-8 pt-5 pl-5 flex space-x-5">
                     <div class="text-3xl sm:text-5xl">Sticky Wall</div>
                     <div id="addStickyButton">

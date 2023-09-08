@@ -31,7 +31,7 @@
 <body class="bg-gray-50">
 
     <!-- navbar starts -->
-    <!-- <script>header()</script> -->
+    <script>header()</script>
     <!-- navbar ends -->
 
 
@@ -52,14 +52,14 @@
                               <img id="logo" draggable="false" class=" w-14 h-14 md:w-20  md:h-20 mt-2 absolute z-10 left-[40%]" src="../Assets/To-Do-Logo.png" alt="">
                               <div class="flex flex-col items-start justify-start pt-10 pr-10 pb-10 pl-10 shadow-2xl rounded-2xl relative z-10 w-full mt-10">
                                    <p class="w-full text-4xl font-medium text-center leading-snug font-serif">Sign up for an account</p>
-                                   <div class="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-8">
+                                   <div class="w-full mt-6 mr-0 mb-0 ml-0 relative space-y-5">
                                         <div class="relative">
                                              <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">Username</p>
                                              <input autocomplete="off" id="userName" name="userName" placeholder="John" type="text" class="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md" />
                                              <div class="text-red-700 text-xs opacity-0" id="nameWaring">User Name Required</div>
                                         </div>
                                         <div class="relative">
-                                             <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute"> Email</p>
+                                             <p class="bg-white pt-0 pr-2 pb-0 pl-2 -mt-3 mr-0 mb-0 ml-2 font-medium text-gray-600 absolute">Email</p>
                                              <input id="userEmail" name="userEmail" placeholder="123@ex.com (optional)" type="text" class="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md" />
                                         </div>
                                         <div class="relative">
@@ -67,9 +67,12 @@
                                              <input autocomplete="off" id="userPassword" name="userPassword" placeholder="Password" type="password" class="border placeholder-gray-400 focus:outline-none focus:border-black w-full pt-4 pr-4 pb-4 pl-4 mt-2 mr-0 mb-0 ml-0 text-base block bg-white border-gray-300 rounded-md" />
                                              <div class="text-red-700 text-xs opacity-0" id="passwordWarning">Passowrd Required</div>
                                         </div>
-
+                                        
+                                        
                                         <div onclick="checkForm();" class="relative">
+                                             <div class="text-red-700 text-xs opacity-0 text-center pb-2" id="unknownWarning">Something Went Wrong, Please Try Again</div>
                                              <div class="w-full inline-block pt-4 pr-5 pb-4 pl-5 text-xl font-medium text-center text-white bg-indigo-500 rounded-lg transition duration-200 hover:bg-indigo-600 ease">Sumbit</div>
+                                             <div class="text-blue-500 text-center pt-3"><a href="./logIn.html" class="hover:underline">Already Have an Account</a></div>
                                         </div>
                                    </div>
                               </div>

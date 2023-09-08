@@ -22,7 +22,6 @@ if ($fetchQuery) {
 
      $result = mysqli_query($conn, $fetchQuery);
      $resultNums = mysqli_num_rows($result);
-     echo $resultNums;
 } else {
 }
 

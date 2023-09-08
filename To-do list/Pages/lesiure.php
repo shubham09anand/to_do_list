@@ -4,6 +4,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" type="image/x-icon" href="..//Assets/To-Do-Logo.png">
      <script src="https://cdn.tailwindcss.com"></script>
      <script src="../script/components.js"></script>
      <script src="../Assets/jquery-3.7.0.min.js"></script>
@@ -74,10 +75,10 @@ if ($fetchQuery) {
                               $taskPriority = $data['taskPriority'];
                          ?>
 
-                              <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border border-b-4 pl-5 rounded-xl place-content-center item-center">
-                                   <div class="w-full pr-10">
+                              <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border-b-2 border-r-none  rounded-xl rounded-r-xl sm:pl-5 rounde place-content-center item-center">
+                                   <div class="w-full sm:pr-10">
                                         <div class="flex mt-2 justify-between w-full">
-                                             <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300"><?php echo $data['taskTitle'] ?></div>
+                                             <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300 min-w-5 truncate"><?php echo $data['taskTitle'] ?></div>
                                              <div class="ml-2 text-xs text-gray-900 dark:text-gray-300"><?php echo $data['taskStatus'] ?></div>
                                         </div>
                                         <div class="flex space-x-5">
@@ -103,7 +104,7 @@ if ($fetchQuery) {
           </div>
           <!-- main ends -->
 
-          <div id="task" class="relative w-full sm:w-2/5 min-h-fit shadow-xl p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
+          <div id="task" class="hidden bg-white w-full sm:w-2/5 min-h-fit shadow-xl p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
                <div id="taskOperationMessageBox" class="hidden flex place-content-center item-center"><div id="taskOperationMessage" class="bg-blue-300 rounded-md py-2 px-4 absolute top-[95%]">Your task Has been updated</div></div>
                <div class="uppercase text-3xl font-semibold flex justify-between">
                     <div>Task</div>
@@ -176,8 +177,12 @@ if ($fetchQuery) {
                     $("#task").show(500);
                     document.getElementById("slectedtaskTitle").focus();
                });
+               $("#hamIcon").click(function() {
+                    $("#dashBoard").toggle(500);
+               });
           });
      </script>
 </body>
+
 
 </html>

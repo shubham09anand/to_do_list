@@ -7,6 +7,7 @@ $loginStatus = 0;
 
 // Check if the connection is successful
 if (!$conn) {
+     $loginStatus = 0;
      die("Connection failed: " . mysqli_connect_error());
 }
 

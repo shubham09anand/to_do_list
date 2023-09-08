@@ -24,15 +24,24 @@ else{
      connection.onreadystatechange = function () {
           if (connection.readyState == 4 && connection.status == 200) {
               var response = JSON.parse(connection.responseText);
-              console.log(response);
               if (response.insertionStatus == -1) {
-                    console.log("Soemething Went wrong plese try again");
+                   document.getElementById("unknownWarning").style.opacity = 1;
+                   setTimeout(()=>{
+                    document.getElementById("unknownWarning").style.transition = "opacity 2000ms";
+                    document.getElementById("unknownWarning").style.opacity = "0";
+               }, 4000)
+                    
               }
               else if (response.insertionStatus == 1) {
-                    console.log("Sign Up Success");
+                    location.href = "./home.php"
               }
               else if (response.insertionStatus == 2) {
-                    console.log("User With this id alreday exists");
+                   document.getElementById("nameWaring").style.opacity = 1;
+                    document.getElementById("nameWaring").innerHTML = "This user name is already used";
+                    setTimeout(()=>{
+                         document.getElementById("nameWaring").style.transition = "opacity 2000ms";
+                         document.getElementById("nameWaring").style.opacity = "0";
+                    }, 4000)
               }
           }
      }

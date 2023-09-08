@@ -38,7 +38,6 @@ else{
      $inserionStaus = 2; 
 }
 
-echo "abc";
 
 $response = array('insertionStatus' => $inserionStaus);
 echo json_encode($response);
