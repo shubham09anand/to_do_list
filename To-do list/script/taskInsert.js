@@ -36,24 +36,18 @@ function addTask(){
                     document.getElementById("addTask").style.display = "none";
                     var response = connection.responseText;
                     console.log(response);
-                    console.log('responded');
-
                }
           }
 
-          var data = "taskName=" + encodeURIComponent(taskName.value) + 
-          "&description=" + encodeURIComponent(description.value) + 
-          "&todoType=" + encodeURIComponent(todoType.innerHTML) + 
-          "&priorityLevel=" + encodeURIComponent(priorityLevel.innerHTML) + 
-          "&duedate=" + encodeURIComponent(duedate.innerHTML);
+          var data = "taskName=" + encodeURIComponent(taskName.value) + "&description=" + encodeURIComponent(description.value) + "&todoType=" + encodeURIComponent(todoType.innerHTML) + "&priorityLevel=" + encodeURIComponent(priorityLevel.innerHTML) + "&duedate=" + encodeURIComponent(duedate.innerHTML);
 
           connection.open("POST", "../backendPhp/OperationtaskInsert.php", true);
           connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
           connection.send(data);
 
-          setTimeout(()=>{
-               location.reload(); 
-          },3000)
+          // setTimeout(()=>{
+          //      location.reload(); 
+          // },3000)
 
      }
 }

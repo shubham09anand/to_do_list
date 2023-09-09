@@ -1,4 +1,5 @@
 <?php $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list'); ?>
+
 <?php
 
 // Check if the form is submitted

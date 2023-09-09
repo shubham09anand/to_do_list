@@ -32,9 +32,57 @@ deleteAccount.addEventListener("click", () => {
 
 //update profile
 
+
 const updateprofileDetails = document.getElementById("updateprofileDetails");
 
+//updateing new image
+const currentTimeMilliseconds = new Date().getTime();
+const currentTimeNanoseconds = currentTimeMilliseconds * 1000;
+
+
+  var userprofileImage = "Profile";
+  var userbackgroundImage = "Background";
+
+// profile photo
+const uploadprofilephotobutton = document.getElementById(
+  "uploadprofilephotobutton"
+);
+const profileImage = document.getElementById("profileImage");
+uploadprofilephotobutton.addEventListener("change", () => {
+  const image = uploadprofilephotobutton.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const imgUrl = reader.result;
+    profileImage.src = imgUrl;
+    userprofileImage = image.name + currentTimeNanoseconds + "profile";
+  };
+
+  reader.readAsDataURL(image);
+});
+
+// background photo
+
+const uploadnewbackgroundPhotoButton = document.getElementById("uploadnewbackgroundPhotoButton");
+const backgroundImage = document.getElementById("backgroundImage");
+uploadnewbackgroundPhotoButton.addEventListener("change", () => {
+  const image = uploadnewbackgroundPhotoButton.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    const imgUrl = reader.result;
+    backgroundImage.src = imgUrl;
+    userbackgroundImage = image.name + currentTimeNanoseconds + "background";
+  };
+
+  reader.readAsDataURL(image);
+});
+
 updateprofileDetails.addEventListener("click", () => {
+
+  console.log(userprofileImage);
+  console.log(userbackgroundImage);
+
   var userDescription = document.getElementById("userDescription").value;
   var userFirstName = document.getElementById("userFirstName").value;
   var userLastName = document.getElementById("userLastName").value;
@@ -83,48 +131,28 @@ updateprofileDetails.addEventListener("click", () => {
     showWarning(stateWarning, "Enter your state");
   } else if (userCity == "") {
     showWarning(cityWarning, "Enter your city");
+  } else {
+
+    const action = "updateProfile";
+    var connection = new XMLHttpRequest();
+    connection.onreadystatechange = function () {
+      if (connection.readyState == 4 && connection.status == 200) {
+        var response = JSON.parse(connection.responseText);
+        if (response.actionStatus == 1) {
+          console.log(response.actionStatus);
+        }
+      }
+    };
+
+    var data = "userFirstName=" + encodeURIComponent(userFirstName) +"&userLastName=" + encodeURIComponent(userLastName) +"&userDOB=" + encodeURIComponent(userDOB) +"&userAge=" + encodeURIComponent(userAge) +"&userGender=" + encodeURIComponent(userGender) +"&userPhoneNumber=" + encodeURIComponent(userPhoneNumber) +"&userCountry=" + encodeURIComponent(userCountry) +"&userState=" + encodeURIComponent(userState) +"&userCity=" + encodeURIComponent(userCity) +"&userDescription=" + encodeURIComponent(userDescription) +"&userprofileImage=" + encodeURIComponent(userprofileImage) +"&userbackgroundImage=" + encodeURIComponent(userbackgroundImage) +  "&action=" + encodeURIComponent(action);
+    connection.open("POST", "../backendPhp/updateuserCred.php", true);
+    connection.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    connection.send(data);
   }
-
-  // if (userDescription == "") {
-  //      descriptionWarning.style.opacity = "1";
-  //      setTimeout(()=>{
-  //           descriptionWarning.style.opacity = "0";
-  //           descriptionWarning.style.transition = "opacity 2000ms";
-  //      },2000)
-  // }
-
-  // console.log(userFirstName.value);
-
-  // const action = "updateProfile";
-
-  // var connection = new XMLHttpRequest();
-
-  // connection.onreadystatechange = function() {
-  //      if (connection.readyState == 4 && connection.status == 200) {
-  //           var response = connection.responseText;
-  //           console.log(response);
-  //           // if (actionStatus == 1) {
-  //           //      console.log(actionStatus);
-
-  //           // }
-  //      }
-  // }
-
-  // var data = "userFirstName=" + encodeURIComponent(userFirstName.value) +
-  //      "userLastName=" + encodeURIComponent(userLastName.value) +
-  //      "userDOB=" + encodeURIComponent(userDOB.value) +
-  //      "userAge=" + encodeURIComponent(userAge.value) +
-  //      "userGender=" + encodeURIComponent(userGender.value) +
-  //      "userPhoneNumber=" + encodeURIComponent(userPhoneNumber.value) +
-  //      "userCountry=" + encodeURIComponent(userCountry.value) +
-  //      "userState=" + encodeURIComponent(userState.value) +
-  //      "userCity=" + encodeURIComponent(userCity.value) +
-  //      "userDescription=" + encodeURIComponent(userDescription.value) +
-  //      "&action=" + encodeURIComponent(action);
-  // connection.open("POST", "../backendPhp/updateuserCred.php", true);
-  // connection.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  // connection.send(data);
 });
+
+
+
 
 // update password
 
@@ -211,40 +239,3 @@ deleteButton.addEventListener("click", () => {
   connection.send(data);
 });
 
-//updateing new image
-// profile photo
-const uploadprofilephotobutton = document.getElementById(
-  "uploadprofilephotobutton"
-);
-const profileImage = document.getElementById("profileImage");
-
-uploadprofilephotobutton.addEventListener("change", () => {
-  const image = uploadprofilephotobutton.files[0];
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    const imgUrl = reader.result;
-    profileImage.src = imgUrl;
-  };
-
-  reader.readAsDataURL(image);
-});
-
-// background photo
-
-const uploadnewbackgroundPhotoButton = document.getElementById(
-  "uploadnewbackgroundPhotoButton"
-);
-const backgroundImage = document.getElementById("backgroundImage");
-
-uploadnewbackgroundPhotoButton.addEventListener("change", () => {
-  const image = uploadnewbackgroundPhotoButton.files[0];
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    const imgUrl = reader.result;
-    backgroundImage.src = imgUrl;
-  };
-
-  reader.readAsDataURL(image);
-});

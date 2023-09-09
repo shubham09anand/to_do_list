@@ -16,15 +16,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     date_default_timezone_set("Asia/Kolkata");
     $userId = 1;
     $taskTime = date("H:i");
-    $taskStatus = "Not Completed";
+    $taskStatus = "Missed";
     
     // Check if the connection is successful
     if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+        die("Connection failed: Connection");
     }
     else {
 
-        $insertQuery = "INSERT INTO tasktable(taskID, UserId, taskTitle, taskDescription, taskdueDate, taskPriority, taskType, taskTime, taskDate, taskStatus) VALUES ('$taskId','$userId','$taskName','$description','$duedate','$priorityLevel','$todoType','$taskTime',now(),'$taskStatus')";
+        $insertQuery = "INSERT INTO tasktable(UserId, taskTitle, taskDescription, taskdueDate, taskPriority, taskType, taskTime, taskDate, taskStatus) VALUES ('$userId','$taskName','$description','$duedate','$priorityLevel','$todoType','$taskTime',now(),'$taskStatus')";
         
         $insertResult = mysqli_query($conn, $insertQuery);
         if (!$insertResult) {

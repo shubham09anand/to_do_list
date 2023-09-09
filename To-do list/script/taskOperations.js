@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var selectedtaskStatus = document.getElementById("selectedtaskStatus");
   var selectedtaskPriority = document.getElementById("selectedtaskPriority");
 
-  console.log(
-    document.getElementById("selectTask").getAttribute("data-taskPriority")
-  );
+  // console.log(
+  //   document.getElementById("selectTask").getAttribute("data-taskPriority")
+  // );
 
   const taskOperationMessageBox = document.getElementById("taskOperationMessageBox");
   const taskOperationMessage = document.getElementById("taskOperationMessage");
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       datataskduedate = button.getAttribute("data-taskduedate");
       selectedtaskStatus = button.getAttribute("data-taskstatus");
 
-      console.log(userId, taskId, taskType, taskPriority , selectedtaskStatus);
+      // console.log(userId, taskId, taskType, taskPriority , selectedtaskStatus);
 
       slectedtaskTitle.value = taskTitle;
       slectedtaskDescription.value = taskdescription;

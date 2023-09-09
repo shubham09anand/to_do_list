@@ -53,30 +53,36 @@ if (!$conn) {
           } 
           else if ($action == 'updateProfile') {
 
-               echo "update section";
-
                $userFirstName = $_REQUEST['userFirstName'];
-               echo $userFirstName;
+               $userLastName = $_REQUEST['userLastName'];
+               $userDOB = $_REQUEST['userDOB'];
+               $userAge = $_REQUEST['userAge'];
+               $userGender = $_REQUEST['userGender'];
+               $userPhoneNumber = $_REQUEST['userPhoneNumber'];
+               $userCountry = $_REQUEST['userCountry'];
+               $userState = $_REQUEST['userState'];
+               $userCity = $_REQUEST['userCity'];
+               $userDescription = $_REQUEST['userDescription'];
 
+               $userprofilePhoto = $_REQUEST['userprofileImage'];
+               $usergroundPhoto = $_REQUEST['userbackgroundImage'];
 
-               // $userId = 41;
+               $userId = 41;
 
-               // $sqlQuery = "DELETE FROM userinfo WHERE userId = '$userId'";
+               $sqlQuery = "INSERT INTO userprofileinfo(userId, userBackgroundPhoto, userProfilePhoto, userFirstName, userLastName, userPhoneNumber, userEmail, userDOB, userStatus, userCountry, userState, userCity, userDiscription) VALUES ('$userId','$userprofilePhoto','$usergroundPhoto','$userFirstName','$userLastName','$userDOB','$userAge','$userGender','$userPhoneNumber','$userCountry','$userState','$userCity','$userDescription')";
 
-               // if ($sqlQuery) {
+               if ($sqlQuery) {
 
-               //      mysqli_query($conn, $sqlQuery);
-               //      $actionStatus = 1;
-               //      echo "success";
-               // } else {
-               //      $actionStatus = -1;
-               //      echo "denied";
-               // }
+                    mysqli_query($conn, $sqlQuery);
+                    $actionStatus = 1;
+               } else {
+                    $actionStatus = -1;
+               }
 
-               // $response = array('actionStatus' => $actionStatus);
-               // echo json_encode($response);
+               $response = array('actionStatus' => $actionStatus);
+               echo json_encode($response);
                
-               // mysqli_close($conn);
+               mysqli_close($conn);
           } 
      }
 }

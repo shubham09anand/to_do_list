@@ -12,6 +12,19 @@
      <title>Document</title>
 </head>
 
+<style>
+     @media (min-width: 200px) {
+          .abc {
+               width: 128px;
+          }
+     }
+     @media (min-width: 400px) {
+          .abc {
+               width: 250;
+          }
+     }
+</style>
+
 <!-- php code -->
 <?php
 
@@ -42,8 +55,8 @@ if ($fetchQuery) {
           </script>
 
           <!-- main starts -->
-          <div class="w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl p-5 space-y-3">
-               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8">Lesiure</div>
+          <div class=" w-full lg:w-full mx-auto min-h-fit mt-5 max-h-full bg-gray-50 rounded-xl sm:p-5 space-y-3">
+               <div class="text-3xl text-left mt-2 sm:text-5xl font-semibold mb-8 pl-5">Lesiure</div>
                <div class="w-full min-h-[600px] max-h-[601px] overflow-y-scroll border rounded-xl">
                     <div class="space-y-3 p-5">
                          <div class="flex w-full justify-between py-3 border px-5 rounded-xl">
@@ -76,13 +89,13 @@ if ($fetchQuery) {
                          ?>
 
                               <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border-b-2 border-r-none  rounded-xl rounded-r-xl sm:pl-5 rounde place-content-center item-center">
-                                   <div class="w-full sm:pr-10">
-                                        <div class="flex mt-2 justify-between w-full">
-                                             <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300 min-w-5 truncate"><?php echo $data['taskTitle'] ?></div>
+                                   <div class="w-full pl-2 sm:pr-10">
+                                        <div class="flex mt-2 justify-between w-full pr-2 sm:pr-5">
+                                             <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300 truncate"><?php echo $data['taskTitle'] ?></div>
                                              <div class="ml-2 text-xs text-gray-900 dark:text-gray-300"><?php echo $data['taskStatus'] ?></div>
                                         </div>
                                         <div class="flex space-x-5">
-                                             <div class="taskDesc pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
+                                             <div class="abc  taskDesc pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
                                              <div class="h-5 w-5">
                                                   <svg id="fulltaskDesc" class="fulltaskDesc w-4 h-4 hover:bg-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black">
                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
@@ -105,7 +118,9 @@ if ($fetchQuery) {
           <!-- main ends -->
 
           <div id="task" class="hidden bg-white w-full sm:w-2/5 min-h-fit shadow-xl p-5 space-y-5 mt-5 rounded-xl absolute md:static right-0 ">
-               <div id="taskOperationMessageBox" class="hidden flex place-content-center item-center"><div id="taskOperationMessage" class="bg-blue-300 rounded-md py-2 px-4 absolute top-[95%]">Your task Has been updated</div></div>
+               <div id="taskOperationMessageBox" class="hidden flex place-content-center item-center">
+                    <div id="taskOperationMessage" class="bg-blue-300 rounded-md py-2 px-4 absolute top-[95%]">Your task Has been updated</div>
+               </div>
                <div class="uppercase text-3xl font-semibold flex justify-between">
                     <div>Task</div>
                     <div>
