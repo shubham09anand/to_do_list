@@ -49,7 +49,6 @@ feedbackBtn.addEventListener('click' , ()=>{
                     var feedbackMessage = document.getElementById("feedbackMessage");
                     if(response.insertionStatus){
                          feedbackMessage.style.display = "block";
-
                          setTimeout(() => {
                               location.href = "..//index.html"
                          }, 3000);

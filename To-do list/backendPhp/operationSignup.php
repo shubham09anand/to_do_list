@@ -1,6 +1,6 @@
-<?php include("./connnection.php") ?>
-
 <?php
+
+include("./connnection.php");
 
 $inserionStaus = 0;
 

@@ -10,23 +10,7 @@
      <title>Document</title>
 </head>
 
-<style>
-     .border-grow {
-          border-bottom: 0;
-          transition: border-bottom 0.3s ease-in-out, transform 0.3s ease-in-out;
-          transform-origin: center bottom;
-          position: absolute;
-          border-bottom: 5px solid #ccc;
-     }
-
-     .border-grow:focus {
-          border-bottom: 5px solid #ccc;
-          transform: scaleY(1);
-          position: absolute;
-     }
-</style>
-
-<body class="px-0">
+<body class="overflow--hidden">
 
      <!-- navbar starts -->
      <script>
@@ -34,8 +18,8 @@
      </script>
      <!-- navbar ends -->
 
-     <div class="min-h-[800px]">
-          <div class="flex">
+     <div class="scale-[95%]">
+          <div class="flex space-x-2">
 
                <!-- dashboard starts -->
                <script>
@@ -43,21 +27,21 @@
                </script>
                <!-- dashboard ends -->
 
-               <div class="w-full bg-white h-screen mt-5 rounded-xl px-4">
+               <div class="w-full bg-white h-screen rounded-xl">
                     <div class="w-5/4 bg-gray-100 space-y-2 sm:space-y-0 sm:flex justify-between px-10 py-2 rounded-lg">
-                         <div id="showProfile" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">Profile</div>
-                         <div id="updateProfile" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit"> Update Profile</div>
-                         <div id="updatePasswordbutton" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">Password</div>
-                         <div id="deleteAccount" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit">Delete Account</div>
+                         <div id="showProfile" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit cursor-pointer">Profile</div>
+                         <div id="updateProfile" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit cursor-pointer"> Update Profile</div>
+                         <div id="updatePasswordbutton" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit cursor-pointer">Password</div>
+                         <div id="deleteAccount" class="mx-auto px-5 lg:px-14 py-2 rounded-lg bg-white text-center w-full sm:w-fit h-fit cursor-pointer">Delete Account</div>
                     </div>
 
                     <!-- Profile starts -->
-                    <div id="userprofile" class="hidden w-full overflow-hidden h-fit pb-20" id="profile">
-                         <div class="flex flex-wrap w-full h-full pb-40">
-                              <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-5 pb-16">
-                                   <div class="h-[200px] bg-contain"><img draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[210px] w-full overflow-hidden" alt=""></div>
-                                   <div class="px-5 py-2 flex flex-col gap-3 pb-6">
-                                        <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-14 border-white'>
+                    <div id="userprofile" class="hidden w-full overflow-hidden h-fit" id="profile">
+                         <div class="flex flex-wrap w-full h-full">
+                              <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-3 pb-16">
+                                   <div class="h-[200px] bg-contain"><img draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[150px] sm:h-[210px] w-full overflow-hidden" alt=""></div>
+                                   <div class="py-2 flex flex-col gap-3 px-4">
+                                        <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-16 ml-2 border-white'>
                                              <img draggable="false" src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60' class='w-full h-full rounded-full object-center object-cover' alt="">
                                         </div>
                                         <div class="mt-2">
@@ -68,7 +52,7 @@
                                         <p class="text-sm text-stone-500 text-justify"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda est vel quis voluptatum dolores natus? Officiis provident veniam sed nulla nesciunt, incidunt enim? </p>
                                         <div class="text-gray-700 -ml-5 sm:-ml-0">
                                              <div class="grid md:grid-cols-2 text-sm gap-3">
-                                                  <div class="grid grid-cols-2">
+                                                  <div class="grid grid-cols-1">
                                                        <div class="px-4 py-2 font-semibold">First Name</div>
                                                        <div id="" class=" px-4 py-2"> $user_data['first_name'] </div>
                                                   </div>
@@ -117,16 +101,16 @@
                          <div class="flex w-full overflow-hidden flex-wrap h-fit pb-10">
                               <div class="flex flex-wrap w-full h-full">
                                    <div class="bg-white md:mx-auto rounded shadow-xl w-[1100px] mx-auto overflow-hidden mt-2">
-                                        <div class="h-[150px] bg-cover"><img id="backgroundImage" draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[220px] w-full overflow-hidden" alt=""></div>
+                                        <div class="h-[150px] bg-cover"><img id="backgroundImage" draggable="false" src="https://cdn.pixabay.com/photo/2014/10/07/13/48/mountain-477832_1280.jpg" class="h-[180px] sm:h-[220px] w-full overflow-hidden" alt=""></div>
                                         <div class="px-5 py-2 flex flex-col gap-3 pb-6 relative">
                                              <div class="flex justify-between">
-                                                  <div class="flex ">
-                                                       <div class='h-[100px] shadow-md w-[100px] rounded-full border-4 overflow-hidden -mt-10 border-white flex'>
+                                                  <div class="flex">
+                                                       <div class='h-[80px] w-[80px] sm:h-[100px]sm:w-[100px] shadow-md rounded-full border-4 overflow-hidden border-white flex -mt-5 sm:-mt-0'>
                                                             <div>
                                                                  <img id="profileImage" draggable="false" src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVyc29ufGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60' class='w-full h-full rounded-full object-center object-cover' alt="">
                                                             </div>
                                                        </div>
-                                                       <div class="w-11 h-11 scale-105 hover:bg-gray-800 rounded-full bg-black absolute mt-5">
+                                                       <div class="w-11 h-11 scale-75 sm:scale-90 lg:scale-100 hover:bg-gray-800 rounded-full bg-black absolute mt-5 sm:mt-10">
                                                             <div class="relative w-11 overflow-hidden h-11 rounded-3xl cursor-pointer">
                                                                  <input id="uploadprofilephotobutton" type="file" autocomplete="off" class="bg-transparent border-0 opacity-0 scale-y-150 cursor-pointer top-3 absolute">
                                                                  <svg id="profileSvg" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 mt-1.5 ml-1.5 mx-auto" fill="white" class="bi bi-camera" viewBox="0 0 16 16">
@@ -136,7 +120,7 @@
                                                             </div>
                                                        </div>
                                                   </div>
-                                                  <div class="w-16 h-16 cursor-pointer hover:bg-gray-800 rounded-full p-3 bg-black -mt-5 relative">
+                                                  <div class="w-16 h-16 cursor-pointer hover:bg-gray-800 rounded-full p-3 bg-black -mt-3 sm:mt-5 relative scale-75 sm:scale-[85%]">
                                                        <input id="uploadnewbackgroundPhotoButton" type="file" autocomplete="off" class="bg-transparent border-0 opacity-0 scale-y-[250%] cursor-pointer top-5 left-1 absolute">
                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="white" class="bi bi-camera" viewBox="0 0 16 16">
                                                             <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z" />
@@ -144,7 +128,7 @@
                                                        </svg>
                                                   </div>
                                              </div>
-                                             <div class="mt-5">
+                                             <div>
                                                   <h3 class="text-xl text-slate-900 relative font-bold leading-6">
                                                        $user_data['user_name'] </h3>
                                                   <p class="text-sm text-gray-600"> $user_data['user_email'] </p>
@@ -226,9 +210,9 @@
 
                     <!-- password reset starts -->
                     <div id="userupdatePassword" class="hidden">
-                         <div id="resetPassword" class="max-w-lg mx-auto my-32 bg-white p-8 rounded-xl shadow-xl shadow-slate-300">
+                         <div id="resetPassword" class="max-w-lg mx-auto my-10 sm:my-32 bg-white p-8 rounded-xl shadow-xl shadow-slate-300">
                               <h1 class="text-4xl font-semibold">Reset password</h1>
-                              <form action="" class="my-10">
+                              <div>
                                    <div class="flex flex-col space-y-5">
                                         <label for="email">
                                              <p class="font-medium text-slate-700 pb-2">Enter your new Password</p>
@@ -243,15 +227,15 @@
                                              <span>Reset password</span>
                                         </button>
                                    </div>
-                              </form>
+                              </div>
                          </div>
                     </div>
                     <!-- password reset ends -->
 
                     <!-- Delete account starts -->
                     <div id="userdeleteAccount" class="hidden">
-                         <div class="mt-20 font-sans leading-tight min-h-screen p-8">
-                              <div class="w-3/4 lg:w-1/2 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
+                         <div class="mt-20 font-sans leading-tight min-h-screen">
+                              <div class="w-11/10 lg:w-1/2 mx-auto bg-white rounded-lg overflow-hidden shadow-lg">
                                    <div class="bg-cover h-40" style="background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');">
                                    </div>
                                    <div class="border-b px-4 pb-6">

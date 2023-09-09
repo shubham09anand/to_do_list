@@ -1,4 +1,6 @@
-<?php $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list'); ?><?php
+<?php 
+
+include("./connnection.php");
 
 $actionStatus = 0;
 
@@ -12,7 +14,7 @@ if (!$conn) {
           
           if ($action == 'updatePassword') {
 
-               $userId = 41;
+               $userId = 40;
                $newPassword = $_REQUEST['newPassword'];
 
                $sqlQuery = "UPDATE userinfo SET userPassword = '$newPassword' WHERE userId = '$userId'";
@@ -32,7 +34,7 @@ if (!$conn) {
           } 
           else if ($action == 'deleteAccount') {
 
-               $userId = 41;
+               $userId = 40;
 
                $sqlQuery = "DELETE FROM userinfo WHERE userId = '$userId'";
 

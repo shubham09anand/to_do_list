@@ -1,8 +1,6 @@
-<?php $conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list'); ?>
-
 <?php
 
-// include("./connection.php");
+include("./connnection.php");
 
 $insertionStatus = 0;
 

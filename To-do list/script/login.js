@@ -25,7 +25,9 @@ else if (document.form.userPassword.value == "") {
                  document.getElementById("warning").innerHTML = "Something went wrong. Please try agian.";
                 }
                 else if (response.loginStatus == 1) {
-                    document.getElementById("warning").style.opacity = "1";
+                    setTimeout(() => {
+                        location.href = "..//Pages//home.php"
+                    }, 2000);
                 }
                 else if (response.loginStatus == -1) {
                  document.getElementById("warning").style.opacity = "1";
