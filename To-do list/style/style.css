@@ -1,0 +1,15 @@
+@media (min-width: 200px) {
+     .taskdescWidth {
+          width: 120px;
+     }
+}
+@media (min-width: 400px) {
+     .taskdescWidth {
+          width: 250px;
+     }
+}
+@media (min-width: 600px) {
+     .taskdescWidth {
+          width: 450px;
+     }
+} 

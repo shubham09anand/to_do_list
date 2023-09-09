@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     date_default_timezone_set("Asia/Kolkata");
     $userId = 1;
     $taskTime = date("H:i");
-    $taskStatus = "Missed";
+    $taskStatus = "Pending";
     
     // Check if the connection is successful
     if (!$conn) {

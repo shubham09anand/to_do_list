@@ -8,22 +8,9 @@
      <script src="https://cdn.tailwindcss.com"></script>
      <script src="../script/components.js"></script>
      <script src="../Assets/jquery-3.7.0.min.js"></script>
-     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"></script>
+     <link rel="stylesheet" href="..//style/style.css">
      <title>Document</title>
 </head>
-
-<style>
-     @media (min-width: 200px) {
-          .abc {
-               width: 128px;
-          }
-     }
-     @media (min-width: 400px) {
-          .abc {
-               width: 250;
-          }
-     }
-</style>
 
 <!-- php code -->
 <?php
@@ -41,14 +28,14 @@ if ($fetchQuery) {
 
 ?>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden scale-[99%]">
      <!-- navbar starts -->
      <script>
           header()
      </script>
      <!-- navbar ends -->
 
-     <div class="flex md:space-x-5">
+     <div class="flex space-x-5">
 
           <script>
                dashboard()
@@ -77,25 +64,17 @@ if ($fetchQuery) {
                          <?php
 
                          while ($data = mysqli_fetch_array($result)) {
-
-                              $userId = $data['userId'];
-                              $taskId = $data['taskId'];
-                              $taskType = $data['taskType'];
-                              $taskDescription = $data['taskDescription'];
-                              $taskTitle = $data['taskTitle'];
-                              $taskdueDate = $data['taskdueDate'];
-                              $taskStatus = $data['taskStatus'];
-                              $taskPriority = $data['taskPriority'];
+                              $userId = $data['userId'];$taskId = $data['taskId'];$taskType = $data['taskType'];$taskDescription = $data['taskDescription'];$taskTitle = $data['taskTitle'];$taskdueDate = $data['taskdueDate'];$taskStatus = $data['taskStatus'];$taskPriority = $data['taskPriority'];
                          ?>
 
                               <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border-b-2 border-r-none  rounded-xl rounded-r-xl sm:pl-5 rounde place-content-center item-center">
                                    <div class="w-full pl-2 sm:pr-10">
                                         <div class="flex mt-2 justify-between w-full pr-2 sm:pr-5">
                                              <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300 truncate"><?php echo $data['taskTitle'] ?></div>
-                                             <div class="ml-2 text-xs text-gray-900 dark:text-gray-300"><?php echo $data['taskStatus'] ?></div>
+                                             <div class="ml-2 text-xs text-gray-900 dark:text-gray-300 pt-3"><?php echo $data['taskStatus'] ?></div>
                                         </div>
                                         <div class="flex space-x-5">
-                                             <div class="abc  taskDesc pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-96 h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
+                                             <div class="taskdescWidth taskDesc pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-[500px] lg:w-[600px] h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
                                              <div class="h-5 w-5">
                                                   <svg id="fulltaskDesc" class="fulltaskDesc w-4 h-4 hover:bg-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black">
                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
