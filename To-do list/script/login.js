@@ -26,7 +26,7 @@ else if (document.form.userPassword.value == "") {
                 }
                 else if (response.loginStatus == 1) {
                     setTimeout(() => {
-                        location.href = "..//Pages//lesiure.php"
+                        location.href = "..//Pages//home.php"
                     }, 2000);
                 }
                 else if (response.loginStatus == -1) {
