@@ -19,14 +19,13 @@ else if (document.form.userPassword.value == "") {
         connection.onreadystatechange = function () {
             if (connection.readyState == 4 && connection.status == 200) {
                 var response = JSON.parse(connection.responseText);
-                console.log(response);
                 if (response.loginStatus == 0) {
                  document.getElementById("warning").style.opacity = "1";
                  document.getElementById("warning").innerHTML = "Something went wrong. Please try agian.";
                 }
                 else if (response.loginStatus == 1) {
                     setTimeout(() => {
-                        location.href = "..//Pages//home.php"
+                        location.href = "..//Pages//lesiure.php";
                     }, 2000);
                 }
                 else if (response.loginStatus == -1) {

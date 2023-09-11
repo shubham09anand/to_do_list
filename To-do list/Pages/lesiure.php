@@ -1,28 +1,44 @@
+<?php @session_start() ?>
+<?php if (!isset($_SESSION['userID'])) {
+     header("Location: ..//");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="shortcut icon" type="image/x-icon" href="..//Assets/To-Do-Logo.png">
      <script src="https://cdn.tailwindcss.com"></script>
-     <script src="../script/components.js"></script>
+     <!-- <link rel="shortcut icon" type="image/x-icon" href="..//Assets/To-Do-Logo.png"> -->
+     <!-- <script src="../script/components.js"></script>
      <script src="../Assets/jquery-3.7.0.min.js"></script>
-     <link rel="stylesheet" href="..//style/style.css">
+     <link rel="stylesheet" href="..//style/style.css"> -->
      <title>Document</title>
 </head>
 
 <!-- php code -->
 <?php
 
-$conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list');
+include("..//backendPhp//connnection.php");
 
-$fetchQuery = "SELECT * FROM tasktable WHERE taskType = 'lesiure' and userID = 1 ";
+if ($conn) {
+     if (isset($_SESSION['userID'])) {
+          $userID = $_SESSION['userID'];
 
-if ($fetchQuery) {
+          echo $userID;
 
-     $result = mysqli_query($conn, $fetchQuery);
-     $resultNums = mysqli_num_rows($result);
+          $fetchQuery = "SELECT * FROM tasktable WHERE taskType = 'Lesiure' and userID = '$userID' ";
+
+          if ($fetchQuery) {
+               $result = mysqli_query($conn, $fetchQuery);
+               $resultNums = mysqli_num_rows($result);
+          } else {
+          }
+     } else {
+          echo "User ID not found in session.";
+     }
 } else {
 }
 
@@ -31,14 +47,14 @@ if ($fetchQuery) {
 <body class="overflow-x-hidden scale-[99%]">
      <!-- navbar starts -->
      <script>
-          header()
+          // header()
      </script>
      <!-- navbar ends -->
 
-     <div class="flex space-x-5">
+     <div class="flex">
 
           <script>
-               dashboard()
+               // dashboard()
           </script>
 
           <!-- main starts -->
@@ -57,21 +73,38 @@ if ($fetchQuery) {
 
                          <div>
                               <script>
-                                   addTask()
+                                   // addTask()
                               </script>
                          </div>
 
                          <?php
 
+                         date_default_timezone_set("Asia/Kolkata");
+                         $date =  date("Y-m-d");
+
                          while ($data = mysqli_fetch_array($result)) {
-                              $userId = $data['userId'];$taskId = $data['taskId'];$taskType = $data['taskType'];$taskDescription = $data['taskDescription'];$taskTitle = $data['taskTitle'];$taskdueDate = $data['taskdueDate'];$taskStatus = $data['taskStatus'];$taskPriority = $data['taskPriority'];
+                              $userId = $data['userId'];
+                              $taskId = $data['taskId'];
+                              $taskType = $data['taskType'];
+                              $taskDescription = $data['taskDescription'];
+                              $taskTitle = $data['taskTitle'];
+                              $taskdueDate = $data['taskdueDate'];
+                              $taskStatus = $data['taskStatus'];
+                              $taskPriority = $data['taskPriority'];
+
+                              if ($taskStatus != "Completed" && strtotime($taskdueDate) > strtotime($date)) {
+                                   $taskStatus = "Pending";
+                              }
+                              if ($taskStatus != "Completed" && strtotime($taskdueDate) < strtotime($date)) {
+                                   $taskStatus = "Missed";
+                              }
                          ?>
 
                               <div class="flex w-full bg-white hover:scale-95 duration-200 justify-between border-b-2 border-r-none  rounded-xl rounded-r-xl sm:pl-5 rounde place-content-center item-center">
                                    <div class="w-full pl-2 sm:pr-10">
                                         <div class="flex mt-2 justify-between w-full pr-2 sm:pr-5">
                                              <div class="ml-2 text-sm sm:text-lg font-semibold text-gray-900 dark:text-gray-300 truncate"><?php echo $data['taskTitle'] ?></div>
-                                             <div class="ml-2 text-xs text-gray-900 dark:text-gray-300 pt-3"><?php echo $data['taskStatus'] ?></div>
+                                             <div class="ml-2 text-xs text-gray-900 dark:text-gray-300 pt-3"><?php echo $taskStatus ?></div>
                                         </div>
                                         <div class="flex space-x-5">
                                              <div class="taskdescWidth taskDesc pl-2 text-sm mb-2 max-w-fit sm:w-80 md:w-[500px] lg:w-[600px] h-6 capitalize truncate"><?php echo $data['taskDescription'] ?></div>
@@ -143,38 +176,38 @@ if ($fetchQuery) {
           </div>
      </div>
 
-     <script src="..//script/taskInsert.js"></script>
+     <!-- <script src="..//script/taskInsert.js"></script> -->
 
      <!-- logOut starts -->
      <script>
-          logOut()
+          // logOut()
      </script>
      <!-- logOut ends -->
 
      <!-- footer starts -->
      <script>
-          footer()
+          // footer()
      </script>
      <!-- footer ends -->
 
-     <script src="..//script/script.js"></script>
+     <!-- <script src="..//script/script.js"></script> -->
 
      <script>
-          document.getElementById("todoType").innerHTML = 'Lesiure';
+          // document.getElementById("todoType").innerHTML = 'Lesiure';
      </script>
 
-     <script src="..//script/taskOperations.js"></script>
+     <!-- <script src="..//script/taskOperations.js"></script> -->
 
      <script>
-          $(document).ready(function() {
-               $(".showtaskDetails").click(function() {
-                    $("#task").show(500);
-                    document.getElementById("slectedtaskTitle").focus();
-               });
-               $("#hamIcon").click(function() {
-                    $("#dashBoard").toggle(500);
-               });
-          });
+          // $(document).ready(function() {
+          //      $(".showtaskDetails").click(function() {
+          //           $("#task").show(500);
+          //           document.getElementById("slectedtaskTitle").focus();
+          //      });
+          //      $("#hamIcon").click(function() {
+          //           $("#dashBoard").toggle(500);
+          //      });
+          // });
      </script>
 </body>
 

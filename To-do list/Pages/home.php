@@ -1,44 +1,54 @@
+<?php @session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="shortcut icon" type="image/x-icon" href="..//Assets/To-Do-Logo.png">
+     <!-- <link rel="shortcut icon" type="image/x-icon" href="..//Assets/To-Do-Logo.png"> -->
      <script src="https://cdn.tailwindcss.com"></script>
-     <script src="../script/components.js"></script>
+     <!-- <script src="../script/components.js"></script>
      <script src="../Assets/jquery-3.7.0.min.js"></script>
-     <link rel="stylesheet" href="..//style/style.css">
+     <link rel="stylesheet" href="..//style/style.css"> -->
      <title>Document</title>
 </head>
 
 <!-- php code -->
 <?php
 
-$conn =  mysqli_connect($servername = 'localhost', $username = 'root', $password = '', $database = 'to-do list');
+include("..//backendPhp//connnection.php");
 
-$fetchQuery = "SELECT * FROM tasktable WHERE taskType = 'Home' and userID = 1 ";
+if ($conn) {
+     if (isset($_SESSION['userID'])) {
+          $userID = $_SESSION['userID'];
 
-if ($fetchQuery) {
+          $fetchQuery = "SELECT * FROM tasktable WHERE taskType = 'Home' and userID = '$userID' ";
 
-     $result = mysqli_query($conn, $fetchQuery);
-     $resultNums = mysqli_num_rows($result);
-} else {
+          if ($fetchQuery) {  
+               $result = mysqli_query($conn, $fetchQuery);
+               $resultNums = mysqli_num_rows($result);
+          } else {
+          }
+      } else {
+          echo "User ID not found in session.";
+      } 
 }
+else{
 
+}
 ?>
 
 <body class="overflow-x-hidden scale-[99%]">
      <!-- navbar starts -->
      <script>
-          header()
+          // header()
      </script>
      <!-- navbar ends -->
 
-     <div class="flex space-x-5">
+     <div class="flex">
 
           <script>
-               dashboard()
+               // dashboard()
           </script>
 
           <!-- main starts -->
@@ -57,7 +67,7 @@ if ($fetchQuery) {
 
                          <div>
                               <script>
-                                   addTask()
+                                   // addTask()
                               </script>
                          </div>
 
@@ -143,29 +153,29 @@ if ($fetchQuery) {
           </div>
      </div>
 
-     <script src="..//script/taskInsert.js"></script>
+     <!-- <script src="..//script/taskInsert.js"></script> -->
 
      <!-- logOut starts -->
      <script>
-          logOut()
+          // logOut()
      </script>
      <!-- logOut ends -->
 
      <!-- footer starts -->
      <script>
-          footer()
+          // footer()
      </script>
      <!-- footer ends -->
 
-     <script src="..//script/script.js"></script>
+     <!-- <script src="..//script/script.js"></script> -->
 
      <script>
-          document.getElementById("todoType").innerHTML = 'Home';
+          // document.getElementById("todoType").innerHTML = 'Home';
      </script>
 
-     <script src="..//script/taskOperations.js"></script>
+     <!-- <script src="..//script/taskOperations.js"></script> -->
 
-     <script>
+     <!-- <script>
           $(document).ready(function() {
                $(".showtaskDetails").click(function() {
                     $("#task").show(500);
@@ -175,7 +185,7 @@ if ($fetchQuery) {
                     $("#dashBoard").toggle(500);
                });
           });
-     </script>
+     </script> -->
 </body>
 
 
